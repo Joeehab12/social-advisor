@@ -8,6 +8,7 @@ module.exports.login = function(req,res,next){
             if (err) throw err;
 
             res.setHeader('Access-Control-Allow-Origin', '*');
+            res.setHeader('Content-Type','application/json; charset=utf-8');
             if (!user){
                 res.json({
                     message: "Authentication failed. User not found."

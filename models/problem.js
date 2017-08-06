@@ -1,8 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-
-module.exports = mongoose.model('Problem',new Schema({
+var mySchema = new Schema({
     title: String,
     description: String,
     comments: [{body: String,upvotes: Number,downvotes: Number}],
@@ -10,4 +9,7 @@ module.exports = mongoose.model('Problem',new Schema({
     userId: String,
     upvotes: Number,
     downvotes: Number
-}));
+});
+module.exports = mongoose.model('Problem',mySchema);
+
+mySchema.index({title: "text",description: "text"});

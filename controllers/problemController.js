@@ -13,6 +13,8 @@ module.exports.problem = function(req,res,next){
                 description: problem.description
             });
         }
-        console.log('problem not found.')
+        else{
+        console.log('problem not found.');
+        }
     });
 }
