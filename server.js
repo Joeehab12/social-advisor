@@ -7,7 +7,7 @@ var mongoose = require('mongoose');
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
-mongoose.connect('mongodb://localhost:27017/social-advisor');
+mongoose.connect(process.env.MONGOLAB_URI);
 app.set('superSecret','joe-productions');
 
 require('./routes/route.js')(app);
