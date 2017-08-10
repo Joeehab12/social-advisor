@@ -42,7 +42,7 @@ app.get('/problem/:id',function(req,res,next){
 
 
 
-var port = process.env.port2 || 8008;
+var port = process.env.PORT || 8008;
 
 app.listen(port,'0.0.0.0',function(){
     console.log('frontend server running at localhost port ' + port +'...');

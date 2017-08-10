@@ -12,7 +12,7 @@ app.set('superSecret','joe-productions');
 
 require('./routes/route.js')(app);
 
-var port = process.env.port1 || 8000;
+var port = process.env.PORT || 8000;
 
 app.listen(port,'0.0.0.0',function(){
     console.log('Magic is happening at localhost port ' + port +'...');
