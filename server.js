@@ -5,9 +5,9 @@ var morgan = require('morgan');
 var cors = require('cors');
 var mongoose = require('mongoose');
 
+app.use(cors);
 app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
-app.use(CORS.cors);
+app.use(bodyParser.json());
 mongoose.connect(process.env.MONGOLAB_URI);
 app.set('superSecret','joe-productions');
 
