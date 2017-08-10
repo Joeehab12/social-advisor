@@ -15,6 +15,8 @@ module.exports.ask = function(req,res){
             if (err) throw err;
             console.log('problem saved successfuly');
             res.setHeader('Access-Control-Allow-Origin', '*');
+            res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Origin');
+            res.setHeader('Access-Control-Allow-Methods', 'PATCH, DELETE, POST, GET, OPTIONS');
             res.json({
                 status: "success"
             });

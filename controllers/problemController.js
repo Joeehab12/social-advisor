@@ -4,8 +4,11 @@ module.exports.problem = function(req,res,next){
     var id = req.params.id;
     Problem.findOne({_id: id},function ( err,problem){
         if (err) throw err;
-        res.setHeader('Access-Control-Allow-Origin', '*');
 
+
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Origin');
+        res.setHeader('Access-Control-Allow-Methods', 'PATCH, DELETE, POST, GET, OPTIONS');
         if (problem){
             console.log('problem found.')
             res.json({

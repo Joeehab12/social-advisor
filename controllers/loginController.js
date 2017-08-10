@@ -9,7 +9,7 @@ module.exports.login = function(req,res,next){
 
             res.setHeader('Access-Control-Allow-Origin', '*');
             res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Origin');
-            res.setHeader('Access-Control-Allow-Methods', 'POST, GET');
+            res.setHeader('Access-Control-Allow-Methods', 'PATCH, DELETE, POST, GET, OPTIONS');
             res.setHeader('Content-Type','application/json; charset=utf-8');
             if (!user){
                 res.json({

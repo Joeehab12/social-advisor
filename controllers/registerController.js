@@ -11,7 +11,10 @@ module.exports.register = function (req,res,next){
     new_user.save(function(err){
         if (err) throw err;
         console.log('user saved successfuly');
+
         res.setHeader('Access-Control-Allow-Origin', '*');
+        res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Origin');
+        res.setHeader('Access-Control-Allow-Methods', 'PATCH, DELETE, POST, GET, OPTIONS');
         res.json({
             status: "success"
         });
