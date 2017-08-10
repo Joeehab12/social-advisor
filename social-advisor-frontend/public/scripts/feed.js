@@ -18,7 +18,7 @@ $(document).ready(function(){
                     +problem.title + '</div><div class="collapsible-body">'+'<br>' +
                      '<p>' + problem.description + '</p><br>' +
                      '<a class="btn-vote upvote-'+ i + '" href= "#" onClick="$(\'.upvote-\'+ ' + i + ').addClass(\'active-upvote\');"><i class="material-icons">verified_user</i></a>' +
-                     '<a id = "read-more-'+ i +'" href = "http://localhost:8008/problem/' + problem._id + '"> click to view story...</a>'+'</div>'
+                     '<a id = "read-more-'+ i +'" href = "https://social-advisor-frontend.herokuapp.com/problem/' + problem._id + '"> click to view story...</a>'+'</div>'
                     +'</li>';
                     i++;
                 });
@@ -41,7 +41,7 @@ $(document).ready(function(){
                               +problem.title + '</div><div class="collapsible-body">'+'<br>' +
                                '<p>' + problem.description + '</p><br>' +
                                '<a class="btn-vote upvote-'+ i + '" href= "#" onClick="$(\'.upvote-\'+ ' + i + ').addClass(\'active-upvote\');"><i class="material-icons">verified_user</i></a>' +
-                               '<a id = "read-more-'+ i +'" href = "http://localhost:8008/problem/' + problem._id + '"> click to view story...</a>'+'</div>'
+                               '<a id = "read-more-'+ i +'" href = "https://social-advisor-frontend.herokuapp.com/problem/' + problem._id + '"> click to view story...</a>'+'</div>'
                               +'</li>';
                               i++;
                           });
