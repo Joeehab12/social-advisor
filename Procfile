@@ -1,2 +1,2 @@
 web: node server.js $PORT
-	./social-advisor-frontend node server.js $PORT
+     node ./social-advisor-frontend/server.js $PORT
