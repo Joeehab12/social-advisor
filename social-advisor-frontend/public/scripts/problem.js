@@ -2,7 +2,7 @@ var url = $(location).attr('href');
 var id = url.substring(url.lastIndexOf('/') + 1);
 //console.log(id);
 $(document).ready(function(){
-        $.post('http://localhost:8000/problem/'+id +'?' + document.cookie,null)
+        $.post('https://social-advisor-heroku.herokuapp.com/problem/'+id +'?' + document.cookie,null)
         .done(function(data){
                 console.log(data);
                 $('#title').text(data.title);
@@ -14,7 +14,7 @@ $(document).ready(function(){
 
 
             $('#comment').click(function(){
-                $.post('http://localhost:8000/comment/'+ id +'?' + document.cookie,{comment: $('#comment-textarea').val()})
+                $.post('https://social-advisor-heroku.herokuapp.com/comment/'+ id +'?' + document.cookie,{comment: $('#comment-textarea').val()})
                 .done(function(data){
                     if (data.status == "success"){
                         console.log("comment added successfuly");
@@ -23,7 +23,7 @@ $(document).ready(function(){
                 });
             });
             str = "";
-            $.get('http://localhost:8000/comment/'+ id +'?' + document.cookie,function(data){
+            $.get('https://social-advisor-heroku.herokuapp.com/comment/'+ id +'?' + document.cookie,function(data){
                 console.log(data);
                 var comments = data[0].comments;
                 comments.forEach(function(item){
@@ -32,7 +32,7 @@ $(document).ready(function(){
                 $('#comments').append(str);
             });
 
-            $.get('http://localhost:8000/answers/'+ id +'?' + document.cookie,function(data){
+            $.get('https://social-advisor-heroku.herokuapp.com/answers/'+ id +'?' + document.cookie,function(data){
                 str = "";
                 console.log(data);
                 var answers = data.answers;
@@ -43,7 +43,7 @@ $(document).ready(function(){
             })
 
             $('#answer').click(function(){
-                $.post('http://localhost:8000/answers/'+ id +'?' + document.cookie,{answer: $('#answer-textarea').val()})
+                $.post('https://social-advisor-heroku.herokuapp.com/answers/'+ id +'?' + document.cookie,{answer: $('#answer-textarea').val()})
                 .done(function(data){
                     if (data.status == "success"){
                         console.log("answer added successfuly");

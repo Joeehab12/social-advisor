@@ -9,7 +9,7 @@ $(document).ready(function(){
             $('#logged-in').append('<p> You must be logged in to access this page.');
         }
         var str = "";
-        $.get('http://localhost:8000/feed?' + document.cookie,function(data){
+        $.get('https://social-advisor-heroku.herokuapp.com/feed?' + document.cookie,function(data){
             if (data){
                 data.forEach(function(problem){
                     console.log(problem._id);
@@ -29,7 +29,7 @@ $(document).ready(function(){
         $( "#autocomplete-input" ).keypress(function(event) {
               if(event.which == 13) {
 
-                  $.post('http://localhost:8000/feed/search?'+ document.cookie,{keyword: $('#autocomplete-input').val()})
+                  $.post('https://social-advisor-heroku.herokuapp.com/feed/search?'+ document.cookie,{keyword: $('#autocomplete-input').val()})
                   .done(function(data){
                       if (data){
                           $('#results').empty();
