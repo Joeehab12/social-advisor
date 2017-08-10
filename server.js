@@ -14,6 +14,6 @@ require('./routes/route.js')(app);
 
 var port = 8000;
 
-app.listen(port,function(){
+app.listen(port,'0.0.0.0',function(){
     console.log('Magic is happening at localhost port ' + port +'...');
 });

@@ -41,8 +41,9 @@ app.get('/problem/:id',function(req,res,next){
 });
 
 
+
 var port = 8008;
 
-app.listen(port,function(){
+app.listen(port,'0.0.0.0',function(){
     console.log('frontend server running at localhost port ' + port +'...');
 });

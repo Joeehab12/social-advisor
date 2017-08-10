@@ -4,11 +4,11 @@ module.exports.ask = function(req,res){
     var problem  = new Problem({
     title: req.body.title,
     description: req.body.description,
-    comments: [{body: req.body.comment,upvotes: req.body.upvotesc ,downvotes: req.body.downvotesc}],
-    answers: [{body: req.body.answer,upvotes: req.body.upvotesa ,downvotes: req.body.downvotesa}],
+    comments: [{body: "",upvotes: 0 ,downvotes: 0}],
+    answers: [{body: "",upvotes: 0 ,downvotes: 0}],
     userId: "",
-    upvotes: req.body.upvotes,
-    downvotes: req.body.downvotes
+    upvotes: 0,
+    downvotes: 0
     });
 
     problem.save(function(err){

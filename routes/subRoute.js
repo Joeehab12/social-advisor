@@ -5,7 +5,11 @@ module.exports = function(app){
     var registerController = require('../controllers/registerController.js');
     var problemController = require('../controllers/problemController.js');
     var searchController = require('../controllers/searchController.js');
-    var commentController = require('../controllers/commentController.js');
+    var commentPostController = require('../controllers/commentPostController.js');
+    var commentGetController = require('../controllers/commentGetController.js');
+    var answerGetController = require('../controllers/answerGetController.js');
+    var answerPostController = require('../controllers/answerPostController.js');
+
     var loginMiddleware = require('../middlewares/loginMiddleware.js');
 
     app.post('/login',loginController.login);
@@ -15,6 +19,9 @@ module.exports = function(app){
     app.post('/problem/:id',problemController.problem);
     app.post('/feed/search',searchController.search);
     app.post('/ask',askController.ask);
-    app.post('/comment/:id',commentController.comment);
+    app.post('/comment/:id',commentPostController.postComment);
+    app.get('/comment/:id',commentGetController.getComment);
+    app.post('/answers/:id',answerPostController.postAnswer)
+    app.get('/answers/:id',answerGetController.getAnswer);
 
 }

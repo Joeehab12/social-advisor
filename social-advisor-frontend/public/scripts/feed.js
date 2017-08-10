@@ -1,5 +1,13 @@
 $(document).ready(function(){
         var i = 1;
+        if(document.cookie){
+            str = '<li><a id = "logout">Log out</a></li>'+
+            '<li><a class = "mylink" href = "#"><img class = "myimg" src = "rsz_notification.png"></img></a></li>';
+            $('#nav-mobile').append(str);
+        }
+        else{
+            $('#logged-in').append('<p> You must be logged in to access this page.');
+        }
         var str = "";
         $.get('http://localhost:8000/feed?' + document.cookie,function(data){
             if (data){
@@ -39,17 +47,9 @@ $(document).ready(function(){
                           });
                           $('#results').append(str);
                       }
-
                   });
-
-
-
               }
-
-
-
-
-
         });
+
 
 });

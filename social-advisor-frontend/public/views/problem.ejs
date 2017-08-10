@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title> Human Social Advisor </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Import materialize.css-->
@@ -21,6 +22,11 @@
   .btn-vote:hover{
       color: #339933;
   }
+
+#comments{
+    font-size: 10pt;
+}
+
   #form1{
 margin-left:200px;
 }
@@ -98,7 +104,7 @@ box-shadow: none;
                       </div>
                     </div>
                 </li>
-        <li><a href="http://localhost:8008/">Home</a></li>
+        <li><a href="http://localhost:8008/feed">Home</a></li>
         <li><a href="http://localhost:8008/ask">Ask</a></li>
         <li><a class = "mylink" href = "#"><img class = "myimg" src = "http://localhost:8008/rsz_notification.png"></img></a></li>
       </ul>
@@ -127,6 +133,13 @@ box-shadow: none;
 
 
       <div class="row">
+            <div id = "comments"class="col s12">
+                <h5> Comments</h5> <br>
+            </div>
+     </div>
+
+
+      <div class="row">
             <form class="col s12">
               <div class="row">
                 <div class="input-field col s12">
@@ -151,6 +164,15 @@ box-shadow: none;
      </div>
 
      <br>
+
+
+
+      <div class="row">
+             <div id = "answers" class="col s12">
+                 <h5> Answers </h5> <br>
+             </div>
+      </div>
+
 
      <h5>Your Answer:</h5>
      <div class="row">
