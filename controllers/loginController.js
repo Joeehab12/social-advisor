@@ -8,8 +8,8 @@ module.exports.login = function(req,res,next){
             if (err) throw err;
 
             res.setHeader('Access-Control-Allow-Origin', '*');
-            res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Origin');
             res.setHeader('Access-Control-Allow-Methods', 'PATCH, DELETE, POST, GET, OPTIONS');
+            res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
             res.setHeader('Content-Type','application/json; charset=utf-8');
             if (!user){
                 res.json({

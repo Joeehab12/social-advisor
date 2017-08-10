@@ -13,8 +13,8 @@ module.exports.register = function (req,res,next){
         console.log('user saved successfuly');
 
         res.setHeader('Access-Control-Allow-Origin', '*');
-        res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Origin');
         res.setHeader('Access-Control-Allow-Methods', 'PATCH, DELETE, POST, GET, OPTIONS');
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
         res.json({
             status: "success"
         });
