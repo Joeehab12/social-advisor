@@ -5,15 +5,14 @@ var morgan = require('morgan');
 var cors = require('cors');
 var mongoose = require('mongoose');
 
-//app.options('*', cors());
-
+var options = {
+    origin: '*',
+    methods: 'GET,PUT,POST,OPTIONS',
+    allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept',
+    credentials: true
+};
 //app.use(cors());
-app.use('*',function(req, res, next) {
-     res.setHeader('Access-Control-Allow-Origin', '*');
-     res.setHeader("Access-Control-Allow-Headers", "X-Requested-With");
-     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-     next();
-});
+app.use(cors(options));
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json());
 
