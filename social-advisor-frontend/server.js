@@ -10,7 +10,7 @@ var options = {
     allowedHeaders: 'Origin,Access-Control-Allow-Origin, X-Requested-With, Content-Type, Accept',
     credentials: true
 };
-/*var allowCrossDomain = function(req, res, next) {
+var allowCrossDomain = function(req, res, next) {
     if ('OPTIONS' == req.method) {
       res.header('Access-Control-Allow-Origin', '*');
       res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS');
@@ -18,15 +18,18 @@ var options = {
       res.send(200);
     }
     else {
+        res.header('Access-Control-Allow-Origin', '*');
+        res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS');
+        res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
       next();
     }
-};*/
+};
 /*app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
   next();
 });*/
-app.use(cors(options));
+app.use(allowCrossDomain);
 app.set('view engine','ejs');
 app.set('views',__dirname + '/public/views');
 
