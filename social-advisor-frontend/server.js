@@ -4,6 +4,12 @@ var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var mongoose = require('mongoose');
 var cors = require('cors');
+var options = {
+    origin: '*',
+    methods: 'GET,PUT,POST,OPTIONS',
+    allowedHeaders: 'Origin,Access-Control-Allow-Origin, X-Requested-With, Content-Type, Accept',
+    credentials: true
+};
 /*var allowCrossDomain = function(req, res, next) {
     if ('OPTIONS' == req.method) {
       res.header('Access-Control-Allow-Origin', '*');
@@ -20,7 +26,7 @@ var cors = require('cors');
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
   next();
 });*/
-app.use(cors());
+app.use(cors(options));
 app.set('view engine','ejs');
 app.set('views',__dirname + '/public/views');
 

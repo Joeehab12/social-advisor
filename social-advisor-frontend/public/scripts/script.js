@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    header("Access-Control-Allow-Origin: *");
+
     $("#login").click(function(){
         $.post('https://social-advisor-heroku.herokuapp.com/login',{username: $("#username").val(),password: $("#password").val()})
                 .done(function( data ) {
