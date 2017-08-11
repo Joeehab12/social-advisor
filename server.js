@@ -8,7 +8,7 @@ var mongoose = require('mongoose');
 var options = {
     origin: '*',
     methods: 'GET,PUT,POST,OPTIONS',
-    allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept',
+    allowedHeaders: 'Access-Control-Allow-Origin, X-Requested-With, Content-Type, Accept',
     credentials: true
 };
 //app.use(cors());
