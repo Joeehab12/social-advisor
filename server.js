@@ -5,19 +5,18 @@ var morgan = require('morgan');
 var cors = require('cors');
 var mongoose = require('mongoose');
 
-app.use(cors());
 //app.options('*', cors());
 
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json());
-
 app.use(cors({
-   'allowedHeaders': ['Access-Control-Allow-Origin','Access-Control-Allow-Methods','Access-Control-Allow-Credentials' 'Content-Type'],
+   'allowedHeaders': ['Access-Control-Allow-Origin','Origin','X-Requested-With','Accept','Access-Control-Allow-Methods','Access-Control-Allow-Credentials' 'Content-Type'],
    'exposedHeaders': ['sessionId'],
    'origin': '*',
    'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
    'preflightContinue': false
-  }));
+  })); 
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json());
+
 
 
 mongoose.connect(process.env.MONGOLAB_URI);
