@@ -7,12 +7,7 @@ var mongoose = require('mongoose');
 
 //app.options('*', cors());
 
-app.use(cors({
-   'allowedHeaders': ['Access-Control-Allow-Origin','Origin','X-Requested-With','Accept','Access-Control-Allow-Methods','Access-Control-Allow-Credentials' 'Content-Type'],
-   'origin': '*',
-   'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
-   'preflightContinue': true
-  }));
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json());
 
