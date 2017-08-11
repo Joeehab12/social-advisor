@@ -28,6 +28,7 @@ module.exports.login = function(req,res,next){
                         message: "Enjoy your token.",
                         token : token
                     });
+                    res.end();
                 }
             }
         });
