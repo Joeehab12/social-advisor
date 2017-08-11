@@ -19,6 +19,7 @@ module.exports.login = function(req,res,next){
             else{
                 if (user.password != req.body.password){
                     res.json({
+                        status : "failed",
                         message: "Authentication failed. Incorrect password."
                     });
                 }

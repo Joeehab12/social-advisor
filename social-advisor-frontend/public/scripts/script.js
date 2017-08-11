@@ -21,7 +21,7 @@ $(document).ready(function(){
             $.post('https://social-advisor-heroku.herokuapp.com/login',{username: $("#username").val(),password: $("#password").val()})
                     .done(function( data ) {
                         document.cookie = "token=" + data.token;
-                        if (document.cookie){
+                        if (data.status == "success"){
                         /*    $.get('https://social-advisor-heroku.herokuapp.com/feed?token=' + data.token,function(data){
 
                         });*/
