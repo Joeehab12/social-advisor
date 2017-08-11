@@ -7,7 +7,7 @@ $(document).ready(function(){
                     /*    $.get('https://social-advisor-heroku.herokuapp.com/feed?token=' + data.token,function(data){
 
                     });*/
-                        $(location).attr('href','https://social-advisor-frontend.herokuapp.com/feed');
+                        $(location).attr('href','https://social-advisor-web.herokuapp.com/feed');
                     }
                     else{
                         $('#error-message').text(data.message);
@@ -24,7 +24,7 @@ $(document).ready(function(){
                         /*    $.get('https://social-advisor-heroku.herokuapp.com/feed?token=' + data.token,function(data){
 
                         });*/
-                            $(location).attr('href','https://social-advisor-frontend.herokuapp.com/feed');
+                            $(location).attr('href','https://social-advisor-web.herokuapp.com/feed');
                         }
                         else{
                             $('#error-message').text(data.message);
