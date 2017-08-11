@@ -14,8 +14,6 @@ var mongoose = require('mongoose');
       next();
     }
 };*/
-app.use(cors());
-
 app.set('view engine','ejs');
 app.set('views',__dirname + '/public/views');
 
@@ -28,32 +26,26 @@ mongoose.connect(process.env.MONGOLAB_URI);
 app.set('superSecret','joe-productions');
 
 app.get('/',function(req,res,next){
-    res.writeHead(200, {'Content-Type': 'text/plain'});
     res.render('index');
 });
 
 app.get('/login',function(req,res,next){
-    res.writeHead(200, {'Content-Type': 'text/plain'});
     res.render('login');
 });
 
 app.get('/register',function(req,res,next){
-    res.writeHead(200, {'Content-Type': 'text/plain'});
     res.render('register');
 });
 
 app.get('/feed',function(req,res,next){
-    res.writeHead(200, {'Content-Type': 'text/plain'});
     res.render('feed');
 });
 
 app.get('/ask',function(req,res,next){
-    res.writeHead(200, {'Content-Type': 'text/plain'});
     res.render('ask');
 });
 
 app.get('/problem/:id',function(req,res,next){
-    res.writeHead(200, {'Content-Type': 'text/plain'});
     res.render('problem');
 });
 
