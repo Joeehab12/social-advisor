@@ -7,12 +7,7 @@ module.exports.login = function(req,res,next){
         },function ( err,user){
             if (err) throw err;
 
-            res.setHeader('Access-Control-Allow-Origin', '*');
-            res.setHeader('Access-Control-Allow-Methods', 'PATCH, DELETE, POST, GET, OPTIONS');
-            res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-            res.setHeader('Access-Control-Allow-Credentials', true);
-
-            res.setHeader('Content-Type','application/json; charset=utf-8');
+            res.writeHead(200, {'Content-Type': 'text/plain'});
             if (!user){
                 res.json({
                     message: "Authentication failed. User not found."

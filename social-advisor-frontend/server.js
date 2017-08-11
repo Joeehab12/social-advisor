@@ -3,7 +3,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var mongoose = require('mongoose');
-var allowCrossDomain = function(req, res, next) {
+/*var allowCrossDomain = function(req, res, next) {
     if ('OPTIONS' == req.method) {
       res.header('Access-Control-Allow-Origin', '*');
       res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS');
@@ -13,8 +13,8 @@ var allowCrossDomain = function(req, res, next) {
     else {
       next();
     }
-};
-app.use(allowCrossDomain);
+};*/
+app.use(cors());
 
 app.set('view engine','ejs');
 app.set('views',__dirname + '/public/views');
@@ -28,26 +28,32 @@ mongoose.connect(process.env.MONGOLAB_URI);
 app.set('superSecret','joe-productions');
 
 app.get('/',function(req,res,next){
+    res.writeHead(200, {'Content-Type': 'text/plain'});
     res.render('index');
 });
 
 app.get('/login',function(req,res,next){
+    res.writeHead(200, {'Content-Type': 'text/plain'});
     res.render('login');
 });
 
 app.get('/register',function(req,res,next){
+    res.writeHead(200, {'Content-Type': 'text/plain'});
     res.render('register');
 });
 
 app.get('/feed',function(req,res,next){
+    res.writeHead(200, {'Content-Type': 'text/plain'});
     res.render('feed');
 });
 
 app.get('/ask',function(req,res,next){
+    res.writeHead(200, {'Content-Type': 'text/plain'});
     res.render('ask');
 });
 
 app.get('/problem/:id',function(req,res,next){
+    res.writeHead(200, {'Content-Type': 'text/plain'});
     res.render('problem');
 });
 
