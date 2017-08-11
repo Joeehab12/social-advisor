@@ -7,7 +7,9 @@ module.exports.login = function(req,res,next){
         },function ( err,user){
             if (err) throw err;
 
-            res.writeHead(200, {'Content-Type': 'text/plain'});
+            res.header('Access-Control-Allow-Origin', '*');
+            res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS');
+            res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
             if (!user){
                 res.json({
                     message: "Authentication failed. User not found."
