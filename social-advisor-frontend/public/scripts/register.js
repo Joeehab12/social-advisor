@@ -9,6 +9,10 @@ $(document).ready(function(){
         .done(function(data){
             if (data.status == "success"){
                     console.log('user saved successfuly');
+                    $('#first_name').val('');
+                    $('#last_name').val('');
+                    $('#username').val('');
+                    $('#password').val('');
             }
         });
     });
