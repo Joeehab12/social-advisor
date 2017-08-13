@@ -65,6 +65,9 @@ app.get('/problem/:id',function(req,res,next){
     res.render('problem');
 });
 
+app.get('/user/:id',function(req,res,next){
+    res.render('user');
+});
 
 
 var port = process.env.PORT || 8008;

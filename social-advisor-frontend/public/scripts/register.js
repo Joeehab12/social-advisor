@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $('#register').click(function(){
-        $.post('https://social-advisor-heroku.herokuapp.com/register',
+        $.post('http://localhost:8000/register',
         { firstName: $('#first_name').val(),
           lastName: $('#last_name').val(),
           username: $('#username').val(),
@@ -20,7 +20,7 @@ $(document).ready(function(){
 
     $("#password").keypress(function(event){
         if (event.which == 13){
-            $.post('https://social-advisor-heroku.herokuapp.com/register',
+            $.post('http://localhost:8000/register',
             { firstName: $('#first_name').val(),
               lastName: $('#last_name').val(),
               username: $('#username').val(),

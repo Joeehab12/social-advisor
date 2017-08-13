@@ -9,6 +9,8 @@ module.exports = function(app){
     var commentGetController = require('../controllers/commentGetController.js');
     var answerGetController = require('../controllers/answerGetController.js');
     var answerPostController = require('../controllers/answerPostController.js');
+    var userController = require('../controllers/userController.js');
+    var profileController = require('../controllers/profileController.js');
 
     var loginMiddleware = require('../middlewares/loginMiddleware.js');
 
@@ -23,5 +25,7 @@ module.exports = function(app){
     app.get('/comment/:id',commentGetController.getComment);
     app.post('/answers/:id',answerPostController.postAnswer)
     app.get('/answers/:id',answerGetController.getAnswer);
+    app.get('/user/:id',userController.user);
+    app.post('/profile',profileController.profile);
 
 }

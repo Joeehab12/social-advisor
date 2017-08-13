@@ -19,7 +19,9 @@
       #form1{
   margin-left:200px;
 }
-
+#current-user{
+    display: inline-block;
+}
 .active-upvote{
     color: #339933;
 }
@@ -49,7 +51,7 @@ border:1px solid #d3d3d3;
     margin-right: 300px;
 }
 #autocomplete-input{
-    width:90%;
+    width:80%;
 }
 .side-nav li a {
   text-decoration:none;
@@ -92,18 +94,17 @@ border:1px solid #d3d3d3;
 
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li>
-                     <div class="center row">
-                        <div class="col s12 " >
+
+
                           <div class="row" id="topbarsearch">
                             <div id ="search" class="input-field col s6 s12 white-text">
                               <i class="white-text material-icons prefix">search</i>
                               <input type="text" placeholder="Search for a certain keyword..." id="autocomplete-input" class="autocomplete black-text" >
                               </div>
                             </div>
-                          </div>
-                        </div>
+
                     </li>
-            <li><a href="https://social-advisor-web.herokuapp.com/ask">Ask</a></li>
+
           </ul>
 
         </div>
@@ -111,10 +112,10 @@ border:1px solid #d3d3d3;
         <div id= "logged-in">
         </div>
         <ul id = "results" class="collapsible" data-collapsible="accordion">
-
         </ul>
 
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script type = "text/javascript" src="jquery.cookie.js"></script>
         <script type="text/javascript" src="css/js/materialize.min.js"></script>
         <script type="text/javascript" src="scripts/feed.js"></script>
         <script type="text/javascript" src="scripts/logout.js"></script>

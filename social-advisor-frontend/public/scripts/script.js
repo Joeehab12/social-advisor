@@ -1,14 +1,17 @@
 $(document).ready(function(){
 
     $("#login").click(function(){
-        $.post('https://social-advisor-heroku.herokuapp.com/login',{username: $("#username").val(),password: $("#password").val()})
+        $.post('http://localhost:8000/login',{username: $("#username").val(),password: $("#password").val()})
                 .done(function( data ) {
-                    document.cookie = "token=" + data.token;
-                    if (document.cookie){
-                    /*    $.get('https://social-advisor-heroku.herokuapp.com/feed?token=' + data.token,function(data){
+                    $.cookie("token",data.token);
+                    $.cookie("current-user",$("#username").val());
+                    $.cookie("user_id",data.id);
+                    if (data.status == "success"){
+                    /*    $.get('http://localhost:8000/feed?token=' + data.token,function(data){
 
                     });*/
-                        $(location).attr('href','https://social-advisor-web.herokuapp.com/feed');
+                        document.
+                        $(location).attr('href','http://localhost:8008/feed');
                     }
                     else{
                         $('#error-message').text(data.message);
@@ -18,14 +21,17 @@ $(document).ready(function(){
 
     $("#password").keypress(function(event){
         if (event.which == 13){
-            $.post('https://social-advisor-heroku.herokuapp.com/login',{username: $("#username").val(),password: $("#password").val()})
+            $.post('http://localhost:8000/login',{username: $("#username").val(),password: $("#password").val()})
                     .done(function( data ) {
-                        document.cookie = "token=" + data.token;
+                        $.cookie("token",data.token);
+                        $.cookie("current-user",$("#username").val());
+                        $.cookie("user_id",data.id);
                         if (data.status == "success"){
-                        /*    $.get('https://social-advisor-heroku.herokuapp.com/feed?token=' + data.token,function(data){
+                        /*    $.get('http://localhost:8000/feed?token=' + data.token,function(data){
 
                         });*/
-                            $(location).attr('href','https://social-advisor-web.herokuapp.com/feed');
+
+                            $(location).attr('href','http://localhost:8008/feed');
                         }
                         else{
                             $('#error-message').text(data.message);

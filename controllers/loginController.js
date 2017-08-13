@@ -29,6 +29,7 @@ module.exports.login = function(req,res,next){
                     });
                     res.json({
                         status: "success",
+                        id: user.id,
                         message: "Enjoy your token.",
                         token : token
                     });

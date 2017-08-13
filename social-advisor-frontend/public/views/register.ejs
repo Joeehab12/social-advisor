@@ -74,9 +74,9 @@ right: -20px;
   <a href="#" class="brand-logo">mySocial</a>
   <a href = "#"><img src = "Webp.net-resizeimage (1).png" href="#" class = "logo"></img></a>
   <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a href="https://social-advisor-web.herokuapp.com/">Home</a></li>
-      <li><a href="https://social-advisor-web.herokuapp.com/login">Login</a></li>
-      <li><a href="https://social-advisor-web.herokuapp.com/register">Register</a></li>
+      <li><a href="http://localhost:8008/">Home</a></li>
+      <li><a href="http://localhost:8008/login">Login</a></li>
+      <li><a href="http://localhost:8008/register">Register</a></li>
   </ul>
 
   </div>
@@ -88,21 +88,21 @@ right: -20px;
 
       <div class="row">
         <div class="input-field col s6">
-          <input id="first_name" type="text" class="validate" required placeholder = "First Name">
+          <input id="first_name" type="text"  required placeholder = "First Name">
 
         </div>
         <div class="input-field col s6">
-          <input id="last_name" type="text" class="validate" required placeholder = "Last Name">
+          <input id="last_name" type="text"  required placeholder = "Last Name">
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="username" type="text" class="validate" required placeholder = "Username">
+          <input id="username" type="text"  required placeholder = "Username">
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="password" type="password" class="validate" minlength="6" required placeholder="Password">
+          <input id="password" type="password"  minlength="6" required placeholder="Password">
         </div>
       </div>
       <div class="cen">
@@ -115,11 +115,12 @@ right: -20px;
             </div>
         </div>
       </div>
-    
+
   </div>
   <a title="Login" class="ngl btn-floating btn-large waves-effect waves-light red"><i class="material-icons">input</i></a>
 </div>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type = "text/javascript" src="jquery.cookie.js"></script>
 <script type = "text/javascript" >
 $(document).ready(function() {
   $('select').material_select();

@@ -7,17 +7,58 @@
     <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Import materialize.css-->
-  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+  <link type="text/css" rel="stylesheet" href="http://localhost:8008/css/materialize.min.css"  media="screen,projection"/>
   <style>
   .mylink{
      height:64px;
   }
   .myimg{
       margin-top:7px;
+      margin-left:7px;
   }
   #form1{
 margin-left:200px;
 }
+#current-user{
+    display: inline-block;
+
+    height: 64px;
+}
+
+#profile-pic{
+    margin-left:550px;
+}
+#user-profile{
+    display: inline-block;
+        margin:0;
+}
+#user-profile p{
+    margin-left:560px;
+}
+#user-img{
+    position: absolute;
+    margin-top: 15px;
+    margin-left: 10px;
+    border-radius: 100px;
+}
+
+#pp{
+    margin-left:550px;
+    border-radius: 20px;
+    border: 10px;
+}
+#upload{
+    margin-left:550px;
+}
+.active-upvote{
+color: #339933;
+}
+
+.btn-vote:hover{
+color: #339933;
+}
+
+
 #autocomplete-input:hover{
 outline: none;
 box-shadow: 0px 0px 5px #d3d3d3;
@@ -38,7 +79,7 @@ position: relative;
 margin-right: 300px;
 }
 #autocomplete-input{
-width:90%;
+width:80%;
 }
 .side-nav li a {
 text-decoration:none;
@@ -53,7 +94,11 @@ background-color:#666666;
 padding-right:2em;
 text-decoration:none
 }
-
+#current-user{
+    display: inline-block;
+    margin: 0;
+    width:160px;
+}
 
 .input-field input[type=date]:focus + label,
 .input-field input[type=text]:focus + label,
@@ -80,72 +125,35 @@ box-shadow: none;
       <a href = "#"><img src = "Webp.net-resizeimage (1).png" href="#" class = "logo"></img></a>
 
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li>
-                 <div class="center row">
-                    <div class="col s12 " >
+        <li>
+
+
                       <div class="row" id="topbarsearch">
                         <div id ="search" class="input-field col s6 s12 white-text">
                           <i class="white-text material-icons prefix">search</i>
                           <input type="text" placeholder="Search for a certain keyword..." id="autocomplete-input" class="autocomplete black-text" >
                           </div>
                         </div>
-                      </div>
-                    </div>
+
                 </li>
-        <li><a href="http://localhost:8008/feed">Home</a></li>
-        <li><a href="http://localhost:8008/ask">Ask</a></li>
-        <li><a class = "mylink" href = "#"><img class = "myimg" src = "rsz_notification.png"></img></a></li>
+
       </ul>
 
     </div>
     </nav>
-
-
-
-
-
-
-
-
-<div class="container">
-
-<div class="row">
-
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="title" type="text" required >
-          <label for="title" class='active'>Title</label>
-        </div>
-      </div>
-      <div class="row">
-            <form class="col s12">
-              <div class="row">
-                <div class="input-field col s12">
-                  <textarea id="description" class="materialize-textarea"></textarea>
-                  <label for="textarea1" class='active'>Description</label>
-                </div>
-              </div>
-            </form>
-     </div>
-      <div class="cen">
-
-         <div class = "cen">
-            <p id = "message"></p>
-            <div class="input-field col s6">
-              <button id = "submit" class="reg btn btn-large btn-register waves-effect waves-light" type="submit" name="action">Submit
-                <i class="material-icons right">done</i>
-              </button>
-            </div>
-        </div>
-      </div>
-  </div>
-</div>
-
-
-
+    <br>
+    <div id = "user-profile">
+        <img id ="pp" src="http://localhost:8008/rsz_blank-profile-picture-973460_640.png"></img><br>
+        <label><input id = "profile-pic" type="file" name="datafile"></label>
+        <p id = "first-name"></p>
+        <p id = "last-name"></p>
+        <p id = "username"></p>
+    </div>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type = "text/javascript" src="jquery.cookie.js"></script>
-    <script type="text/javascript" src="scripts/ask.js"></script>
-    <script type="text/javascript" src="css/js/materialize.min.js"></script>
+    <script type = "text/javascript" src="http://localhost:8008/jquery.cookie.js"></script>
+    <script type="text/javascript" src="http://localhost:8008/css/js/materialize.min.js"></script>
+    <script type="text/javascript" src="http://localhost:8008/scripts/profile.js"></script>
+    <script type="text/javascript" src="http://localhost:8008/scripts/logout.js"></script>
+
 </body>
 </html>

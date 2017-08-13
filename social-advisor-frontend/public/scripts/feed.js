@@ -1,7 +1,9 @@
 $(document).ready(function(){
         var i = 1;
-        if(document.cookie){
-            str = '<li><a id = "logout">Log out</a></li>'+
+        if($.cookie("token")){
+
+            str ='<li>Welcome, <a id = "current-user" href="http://localhost:8008/user/'+ $.cookie('user_id')+  '">'+ $.cookie('current-user') +'</a></li>'+'<li><a href="http://localhost:8008/ask">Ask</a></li>'
+            + '<li><a id = "logout">Log out</a></li>'+
             '<li><a class = "mylink" href = "#"><img class = "myimg" src = "rsz_notification.png"></img></a></li>';
             $('#nav-mobile').append(str);
         }
@@ -9,7 +11,7 @@ $(document).ready(function(){
             $('#logged-in').append('<p> You must be logged in to access this page.');
         }
         var str = "";
-        $.get('https://social-advisor-heroku.herokuapp.com/feed?' + document.cookie,function(data){
+        $.get('http://localhost:8000/feed?token=' + $.cookie("token"),function(data){
             if (data){
                 data.forEach(function(problem){
                     console.log(problem._id);
@@ -29,7 +31,7 @@ $(document).ready(function(){
         $( "#autocomplete-input" ).keypress(function(event) {
               if(event.which == 13) {
 
-                  $.post('https://social-advisor-heroku.herokuapp.com/feed/search?'+ document.cookie,{keyword: $('#autocomplete-input').val()})
+                  $.post('http://localhost:8000/feed/search?token='+ $.cookie("token"),{keyword: $('#autocomplete-input').val()})
                   .done(function(data){
                       if (data){
                           $('#results').empty();
@@ -41,7 +43,7 @@ $(document).ready(function(){
                               +problem.title + '</div><div class="collapsible-body">'+'<br>' +
                                '<p>' + problem.description + '</p><br>' +
                                '<a class="btn-vote upvote-'+ i + '" href= "#" onClick="$(\'.upvote-\'+ ' + i + ').addClass(\'active-upvote\');"><i class="material-icons">verified_user</i></a>' +
-                               '<a id = "read-more-'+ i +'" href = "https://social-advisor-web.herokuapp.com/problem/' + problem._id + '"> click to view story...</a>'+'</div>'
+                               '<a id = "read-more-'+ i +'" href = "http://localhost:8008/problem/' + problem._id + '"> click to view story...</a>'+'</div>'
                               +'</li>';
                               i++;
                           });

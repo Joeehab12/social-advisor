@@ -2,19 +2,16 @@ var url = $(location).attr('href');
 var id = url.substring(url.lastIndexOf('/') + 1);
 //console.log(id);
 $(document).ready(function(){
-        $.post('https://social-advisor-heroku.herokuapp.com/problem/'+id +'?' + document.cookie,null)
+        $.post('http://localhost:8000/problem/'+id +'?' + $.cookie("token"),null)
         .done(function(data){
                 console.log(data);
                 $('#title').text(data.title);
                 $('#description').text(data.description);
-                /*$('#active').click(function(){
-                    $('#active').addClass('active-upvote');
-                });*/
         });
 
 
             $('#comment').click(function(){
-                $.post('https://social-advisor-heroku.herokuapp.com/comment/'+ id +'?' + document.cookie,{comment: $('#comment-textarea').val()})
+                $.post('http://localhost:8000/comment/'+ id +'?' + $.cookie("token"),{comment: $('#comment-textarea').val()})
                 .done(function(data){
                     if (data.status == "success"){
                         console.log("comment added successfuly");
@@ -23,7 +20,7 @@ $(document).ready(function(){
                 });
             });
             str = "";
-            $.get('https://social-advisor-heroku.herokuapp.com/comment/'+ id +'?' + document.cookie,function(data){
+            $.get('http://localhost:8000/comment/'+ id +'?' + $.cookie("token"),function(data){
                 console.log(data);
                 var comments = data[0].comments;
                 comments.forEach(function(item){
@@ -32,7 +29,7 @@ $(document).ready(function(){
                 $('#comments').append(str);
             });
 
-            $.get('https://social-advisor-heroku.herokuapp.com/answers/'+ id +'?' + document.cookie,function(data){
+            $.get('http://localhost:8000/answers/'+ id +'?' + $.cookie("token"),function(data){
                 str = "";
                 console.log(data);
                 var answers = data.answers;
@@ -43,7 +40,7 @@ $(document).ready(function(){
             })
 
             $('#answer').click(function(){
-                $.post('https://social-advisor-heroku.herokuapp.com/answers/'+ id +'?' + document.cookie,{answer: $('#answer-textarea').val()})
+                $.post('http://localhost:8000/answers/'+ id +'?' + $.cookie("token"),{answer: $('#answer-textarea').val()})
                 .done(function(data){
                     if (data.status == "success"){
                         console.log("answer added successfuly");
