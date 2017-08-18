@@ -31,7 +31,7 @@ $(document).ready(function(){
 
                         });*/
 
-                            $(location).attr('href','http://localhost:8008/feed');
+                            $(location).attr('href','http://localhost:8008/feed?token='+ $.cookie("token"));
                         }
                         else{
                             $('#error-message').text(data.message);

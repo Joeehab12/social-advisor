@@ -31,11 +31,11 @@ var allowCrossDomain = function(req, res, next) {
 });*/
 app.use(allowCrossDomain);
 app.set('view engine','ejs');
-app.set('views',__dirname + '/ionic-angularjs/public/views');
+app.set('views',__dirname + '/public/views');
 
 //app.use(express.static(__dirname + '/public'));
 
-app.use(express.static(__dirname + '/ionic-angularjs/public'));
+app.use(express.static(__dirname + '/public'));
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
