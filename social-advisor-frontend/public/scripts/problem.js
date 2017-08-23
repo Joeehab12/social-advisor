@@ -4,7 +4,7 @@ var id = url.substring(url.lastIndexOf('/') + 1);
 $(document).ready(function(){
         $.post('http://localhost:8000/problem/'+id +'?token=' + $.cookie("token"),null)
         .done(function(data){
-                console.log(data);
+                console.log($.cookie("token"));
                 $('#title').text(data.title);
                 $('#description').text(data.description);
         });
