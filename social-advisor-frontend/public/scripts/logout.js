@@ -1,6 +1,9 @@
 $(document).ready(function(){
     $('#logout').click(function(){
         $.removeCookie("token");
+        $.removeCookie("profile-pic");
+        $.removeCookie("user_id");
+        $.removeCookie("current-user");
         $(location).attr('href','http://localhost:8008/');
     });
 });

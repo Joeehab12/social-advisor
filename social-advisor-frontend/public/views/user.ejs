@@ -7,7 +7,9 @@
     <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Import materialize.css-->
+
   <link type="text/css" rel="stylesheet" href="http://localhost:8008/css/materialize.min.css"  media="screen,projection"/>
+<link rel ="stylesheet" href = "/styles/user.css">
   <style>
   .mylink{
      height:64px;
@@ -24,9 +26,9 @@ margin-left:200px;
 
     height: 64px;
 }
-
 #profile-pic{
     margin-left:550px;
+    position:relative;
 }
 #user-profile{
     display: inline-block;
@@ -122,7 +124,7 @@ box-shadow: none;
     <nav>
     <div class="nav-wrapper">
       <a href="#" class="brand-logo">mySocial</a>
-      <a href = "#"><img src = "Webp.net-resizeimage (1).png" href="#" class = "logo"></img></a>
+      <a href = "#"><img src = "http://localhost:8008/Webp.net-resizeimage (1).png" href="#" class = "logo"></img></a>
 
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li>
@@ -141,7 +143,72 @@ box-shadow: none;
 
     </div>
     </nav>
+
+
+
+
     <br>
+    <aside class="profile-card">
+  <header>
+    <!-- here’s the avatar -->
+
+    <a target="_blank" href="#">
+      <img class="hoverZoomLink">
+      <a id = "edit-pic" class="waves-effect waves-teal btn-flat">Change Profile Picture</a>
+    </a>
+
+    <input id = "profile-pic" type="file" name="datafile">
+
+
+    <!-- the username -->
+    <h1 id = "username">
+
+          </h1>
+
+    <!-- and role or location -->
+    <h2 id = "first_last_name">
+
+          </h2>
+
+  </header>
+
+  <!-- bit of a bio; who are you? -->
+  <div class="profile-bio">
+
+    <p>
+      It takes monumental improvement for us to change how we live our lives. Design is the way we access that improvement.
+    </p>
+
+  </div>
+
+  <!-- some social links to show off -->
+  <ul class="profile-social-links">
+    <li>
+      <a target="_blank" href="https://www.facebook.com/creativedonut">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a target="_blank" href="https://twitter.com/dropyourbass">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a target="_blank" href="https://github.com/vipulsaxena">
+        <i class="fa fa-github"></i>
+      </a>
+    </li>
+    <li>
+      <a target="_blank" href="https://www.behance.net/vipulsaxena">
+
+        <i class="fa fa-behance"></i>
+      </a>
+    </li>
+  </ul>
+</aside>
+
+
+<!--
     <div id = "user-profile">
         <img id ="pp" src="http://localhost:8008/rsz_blank-profile-picture-973460_640.png"></img><br>
         <label><input id = "profile-pic" type="file" name="datafile"></label>
@@ -149,6 +216,7 @@ box-shadow: none;
         <p id = "last-name"></p>
         <p id = "username"></p>
     </div>
+-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type = "text/javascript" src="http://localhost:8008/jquery.cookie.js"></script>
     <script type="text/javascript" src="http://localhost:8008/css/js/materialize.min.js"></script>

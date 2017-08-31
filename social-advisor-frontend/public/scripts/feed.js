@@ -1,15 +1,26 @@
 $(document).ready(function(){
+  $.get('http://localhost:8000/user/'+$.cookie('user_id')+'?token=' + $.cookie("token")).done(function(data){
+      if (data){
+        $.cookie("profile-pic",data.profile_pic);
+        $('#user-img').attr('src',$.cookie('profile-pic'));
+      }
+  });
+  
         var i = 1;
         if($.cookie("token")){
 
-            str ='<li>Welcome, <a id = "current-user" href="/user/'+ $.cookie('user_id')+  '">'+ $.cookie('current-user') +'</a></li>'+'<li><a href="http://localhost:8008/ask">Ask</a></li>'
+            str ='<li>Welcome, <a id = "current-user" href="/user/'+ $.cookie('user_id')+  '">'+ $.cookie('current-user') + '<img id = "user-img" style = "width:30px; height:30px"></img>'+'</a></li>'+'<li><a href="http://localhost:8008/ask">Ask</a></li>'
             + '<li><a id = "logout">Log out</a></li>'+
             '<li><a class = "mylink" href = "#"><img class = "myimg" src = "rsz_notification.png"></img></a></li>';
             $('#nav-mobile').append(str);
         }
         else{
-            $('#logged-in').append('<p> You must be logged in to access this page.');
+            $('#logged-in').append('<p> You must be logged in to access this page.</p>');
         }
+
+
+
+
         var str = "";
         $.get('http://localhost:8000/feed?token=' + $.cookie("token"),function(data){
             if (data){
@@ -20,7 +31,7 @@ $(document).ready(function(){
                     +problem.title + '</div><div class="collapsible-body">'+'<br>' +
                      '<p>' + problem.description + '</p><br>' +
                      '<a class="btn-vote upvote-'+ i + '" href= "#" onClick="$(\'.upvote-\'+ ' + i + ').addClass(\'active-upvote\');"><i class="material-icons">verified_user</i></a>' +
-                     '<a id = "read-more-'+ i +'" href = "http://localhost:8008/problem/' + problem._id + '?token='+$.cookie("token")+'"> click to view story...</a>'+'</div>'
+                     '<a id = "read-more-'+ i +'" href = "http://localhost:8008/problem/' + problem._id+'"> click to view story...</a>'+'</div>'
                     +'</li>';
                     i++;
                 });
@@ -33,8 +44,10 @@ $(document).ready(function(){
 
                   $.post('http://localhost:8000/feed/search?token='+ $.cookie("token"),{keyword: $('#autocomplete-input').val()})
                   .done(function(data){
+
                       if (data){
-                          $('#results').empty();
+                        $('#results').empty();
+                        $('#empty-search').empty();
                           str = "";
                           data.forEach(function(problem){
                               console.log(problem._id);
@@ -43,13 +56,23 @@ $(document).ready(function(){
                               +problem.title + '</div><div class="collapsible-body">'+'<br>' +
                                '<p>' + problem.description + '</p><br>' +
                                '<a class="btn-vote upvote-'+ i + '" href= "#" onClick="$(\'.upvote-\'+ ' + i + ').addClass(\'active-upvote\');"><i class="material-icons">verified_user</i></a>' +
-                               '<a id = "read-more-'+ i +'" href = "http://localhost:8008/problem/' + problem._id + '?token='+$.cookie("token")+'"> click to view story...</a>'+'</div>'
+                               '<a id = "read-more-'+ i +'" href = "http://localhost:8008/problem/' + problem._id + '"> click to view story...</a>'+'</div>'
                               +'</li>';
                               i++;
                           });
                           $('#results').append(str);
+                          if (str == ""){
+                            $('#empty-search').empty();
+                            $('#empty-search').append('<p>Search returned no results</p>');
+                            console.log('no data');
+                          }
+                          else{
+                            console.log('data found');
+                          }
                       }
                   });
+
+
               }
         });
 

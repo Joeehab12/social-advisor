@@ -21,6 +21,7 @@
 }
 #current-user{
     display: inline-block;
+    width:160px;
 }
 .active-upvote{
     color: #339933;
@@ -29,6 +30,7 @@
 .btn-vote:hover{
     color: #339933;
 }
+
 
 
 #autocomplete-input:hover{
@@ -67,7 +69,12 @@ border:1px solid #d3d3d3;
   text-decoration:none
 }
 
-
+#user-img{
+    position: absolute;
+    margin-top: 15px;
+    margin-left: 10px;
+    border-radius: 100px;
+}
 .input-field input[type=date]:focus + label,
 .input-field input[type=text]:focus + label,
 .input-field input[type=title]:focus + label,
@@ -111,7 +118,11 @@ border:1px solid #d3d3d3;
         </nav>
         <div id= "logged-in">
         </div>
+        <div id= "empty-search">
+        </div>
+
         <ul id = "results" class="collapsible" data-collapsible="accordion">
+
         </ul>
 
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

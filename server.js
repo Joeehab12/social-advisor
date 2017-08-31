@@ -39,6 +39,8 @@ app.use(bodyParser.json({limit: "50mb"}));
 
 
 mongoose.connect(process.env.MONGOLAB_URI);
+mongoose.set('debug', true);
+
 app.set('superSecret','joe-productions');
 
 require('./routes/route.js')(app);
