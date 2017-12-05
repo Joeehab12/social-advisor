@@ -5,99 +5,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title> Human Social Advisor </title>
     <!--Import Google Icon Font-->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!--Import materialize.css-->
-  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-  <style>
-  .mylink{
-     height:64px;
-  }
-  .myimg{
-      margin-top:7px;
-  }
-  #form1{
-margin-left:200px;
-}
-#autocomplete-input:hover{
-outline: none;
-box-shadow: 0px 0px 5px #d3d3d3;
-background-color: #fff;
-border:1px solid #d3d3d3;
-}
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <style>
+    .mylink{
+        height:64px;
+    }
+    .myimg{
+        margin-top:7px;
+    }
+    #form1{
+        margin-left:200px;
+    }
+    #autocomplete-input:hover{
+        outline: none;
+        box-shadow: 0px 0px 5px #d3d3d3;
+        background-color: #fff;
+        border:1px solid #d3d3d3;
+    }
 
-#autocomplete-input:focus{
-outline: none;
-box-shadow: 0px 0px 5px #d3d3d3;
-background-color: #fff;
-border:1px solid #d3d3d3;
-}
-
-
-#search{
-position: relative;
-margin-right: 300px;
-}
-#autocomplete-input{
-width:90%;
-}
-.side-nav li a {
-text-decoration:none;
-}
-#searchResults2{
-background-color:#666666;
-}
-#searchResults{
-background-color:#666666;
-}
-.right li a{
-padding-right:2em;
-text-decoration:none
-}
+    #autocomplete-input:focus{
+        outline: none;
+        box-shadow: 0px 0px 5px #d3d3d3;
+        background-color: #fff;
+        border:1px solid #d3d3d3;
+    }
 
 
-.input-field input[type=date]:focus + label,
-.input-field input[type=text]:focus + label,
-.input-field input[type=title]:focus + label,
-.input-field input[type=description]:focus + label {
-color: #e91e63;
-}
+    #search{
+        position: relative;
+        margin-right: 300px;
+    }
+    #autocomplete-input{
+        width:90%;
+    }
+    .side-nav li a {
+        text-decoration:none;
+    }
+    #searchResults2{
+        background-color:#666666;
+    }
+    #searchResults{
+        background-color:#666666;
+    }
+    .right li a{
+        padding-right:2em;
+        text-decoration:none
+    }
 
-.input-field input[type=date]:focus,
-.input-field input[type=text]:focus,
-.input-field input[type=title]:focus,
-.input-field input[type=description]:focus {
-border-bottom: 2px solid #e91e63;
-box-shadow: none;
-}
+
+    .input-field input[type=date]:focus + label,
+    .input-field input[type=text]:focus + label,
+    .input-field input[type=title]:focus + label,
+    .input-field input[type=description]:focus + label {
+        color: #e91e63;
+    }
+
+    .input-field input[type=date]:focus,
+    .input-field input[type=text]:focus,
+    .input-field input[type=title]:focus,
+    .input-field input[type=description]:focus {
+        border-bottom: 2px solid #e91e63;
+        box-shadow: none;
+    }
 
 
-  </style>
+    </style>
 </head>
 <body>
     <nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo">mySocial</a>
-      <a href = "#"><img src = "Webp.net-resizeimage (1).png" href="#" class = "logo"></img></a>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">mySocial</a>
+            <a href = "#"><img src = "Webp.net-resizeimage (1).png" href="#" class = "logo"></img></a>
 
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li>
-                 <div class="center row">
-                    <div class="col s12 " >
-                      <div class="row" id="topbarsearch">
-                        <div id ="search" class="input-field col s6 s12 white-text">
-                          <i class="white-text material-icons prefix">search</i>
-                          <input type="text" placeholder="Search for a certain keyword..." id="autocomplete-input" class="autocomplete black-text" >
-                          </div>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li>
+                    <div class="center row">
+                        <div class="col s12 " >
+                            <div class="row" id="topbarsearch">
+                                <div id ="search" class="input-field col s6 s12 white-text">
+                                    <i class="white-text material-icons prefix">search</i>
+                                    <input type="text" placeholder="Search for a certain keyword..." id="autocomplete-input" class="autocomplete black-text" >
+                                </div>
+                            </div>
                         </div>
-                      </div>
                     </div>
                 </li>
-        <li><a href="http://localhost:8008/feed">Home</a></li>
-        <li><a href="http://localhost:8008/ask">Ask</a></li>
-        <li><a class = "mylink" href = "#"><img class = "myimg" src = "rsz_notification.png"></img></a></li>
-      </ul>
+                <li><a href="http://localhost:8008/feed">Home</a></li>
+                <li><a href="http://localhost:8008/ask">Ask</a></li>
+                <li><a class = "mylink" href = "#"><img class = "myimg" src = "rsz_notification.png"></img></a></li>
+            </ul>
 
-    </div>
+        </div>
     </nav>
 
 
@@ -107,39 +107,48 @@ box-shadow: none;
 
 
 
-<div class="container">
+    <div class="container">
 
-<div class="row">
+        <div class="row">
 
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="title" type="text" required >
-          <label for="title" class='active'>Title</label>
-        </div>
-      </div>
-      <div class="row">
-            <form class="col s12">
-              <div class="row">
+            <div class="row">
                 <div class="input-field col s12">
-                  <textarea id="description" class="materialize-textarea"></textarea>
-                  <label for="textarea1" class='active'>Description</label>
+                    <input id="title" type="text" required >
+                    <label for="title" class='active'>Title</label>
                 </div>
-              </div>
-            </form>
-     </div>
-      <div class="cen">
+            </div>
 
-         <div class = "cen">
-            <p id = "message"></p>
-            <div class="input-field col s6">
-              <button id = "submit" class="reg btn btn-large btn-register waves-effect waves-light" type="submit" name="action">Submit
-                <i class="material-icons right">done</i>
-              </button>
+            <div class="row">
+                <div class="input-field col s12">
+                    <div id = "chipsContainer" class="chips-initial">
+                    </div>
+                    <label for="chipsContainer" >Search Tags</label>      
+
+                </div>
+            </div>
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea id="description" class="materialize-textarea"></textarea>
+                            <label for="textarea1" class='active'>Description</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="cen">
+
+                <div class = "cen">
+                    <p id = "message"></p>
+                    <div class="input-field col s6">
+                        <button id = "submit" class="reg btn btn-large btn-register waves-effect waves-light" type="submit" name="action">Submit
+                            <i class="material-icons right">done</i>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
-      </div>
-  </div>
-</div>
+    </div>
 
 
 

@@ -10,7 +10,6 @@ $(document).ready(function(){
                     /*    $.get('http://localhost:8000/feed?token=' + data.token,function(data){
 
                     });*/
-                        document.
                         $(location).attr('href','http://localhost:8008/feed');
                     }
                     else{

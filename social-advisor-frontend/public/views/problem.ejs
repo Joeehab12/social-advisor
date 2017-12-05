@@ -5,210 +5,230 @@
     <title> Human Social Advisor </title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--Import Google Icon Font-->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!--Import materialize.css-->
-  <link type="text/css" rel="stylesheet" href="http://localhost:8008/css/materialize.min.css"  media="screen,projection"/>
-  <style>
-  .mylink{
-     height:64px;
-  }
-  .myimg{
-      margin-top:7px;
-  }
-  .active-upvote{
-      color: #339933;
-  }
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="http://localhost:8008/css/materialize.min.css"  media="screen,projection"/>
+    <link rel = "stylesheet" href = "/scripts/lib/jquery.upvote.css">
+    <style>
+    body,html{
+        height:100%;
+    }
+    #topic {
+        float: left;
+        padding:15px;
+        height:400px;
+    }
+    /*#problemData{
+    float:right;
+    }*/
 
-  .btn-vote:hover{
-      color: #339933;
-  }
+    .mylink{
+        height:64px;
+    }
+    #tagLinks{
+        display: block;
+    }
+    .myimg{
+        margin-top:7px;
+    }
+    .active-upvote{
+        color: #339933;
+    }
 
-#comments{
-    font-size: 10pt;
-}
+    .btn-vote:hover{
+        color: #339933;
+    }
+    #comments{
+        font-size: 10pt;
+    }
 
-  #form1{
-margin-left:200px;
-}
-#autocomplete-input:hover{
-outline: none;
-box-shadow: 0px 0px 5px #d3d3d3;
-background-color: #fff;
-border:1px solid #d3d3d3;
-}
+    #form1{
+        margin-left:200px;
+    }
+    #autocomplete-input:hover{
+        outline: none;
+        box-shadow: 0px 0px 5px #d3d3d3;
+        background-color: #fff;
+        border:1px solid #d3d3d3;
+    }
 
-#autocomplete-input:focus{
-outline: none;
-box-shadow: 0px 0px 5px #d3d3d3;
-background-color: #fff;
-border:1px solid #d3d3d3;
-}
-
-
-#search{
-position: relative;
-margin-right: 300px;
-}
-#autocomplete-input{
-width:90%;
-}
-.side-nav li a {
-text-decoration:none;
-}
-#searchResults2{
-background-color:#666666;
-}
-#searchResults{
-background-color:#666666;
-}
-.right li a{
-padding-right:2em;
-text-decoration:none
-}
+    #autocomplete-input:focus{
+        outline: none;
+        box-shadow: 0px 0px 5px #d3d3d3;
+        background-color: #fff;
+        border:1px solid #d3d3d3;
+    }
 
 
-.input-field input[type=date]:focus + label,
-.input-field input[type=text]:focus + label,
-.input-field input[type=title]:focus + label,
-.input-field input[type=description]:focus + label {
-color: #e91e63;
-}
+    #search{
+        position: relative;
+        margin-right: 300px;
+    }
+    #autocomplete-input{
+        width:90%;
+    }
+    .side-nav li a {
+        text-decoration:none;
+    }
+    #searchResults2{
+        background-color:#666666;
+    }
+    #searchResults{
+        background-color:#666666;
+    }
+    .right li a{
+        padding-right:2em;
+        text-decoration:none
+    }
 
-.input-field input[type=date]:focus,
-.input-field input[type=text]:focus,
-.input-field input[type=title]:focus,
-.input-field input[type=description]:focus {
-border-bottom: 2px solid #e91e63;
-box-shadow: none;
-}
+
+    .input-field input[type=date]:focus + label,
+    .input-field input[type=text]:focus + label,
+    .input-field input[type=title]:focus + label,
+    .input-field input[type=description]:focus + label {
+        color: #e91e63;
+    }
+
+    .input-field input[type=date]:focus,
+    .input-field input[type=text]:focus,
+    .input-field input[type=title]:focus,
+    .input-field input[type=description]:focus {
+        border-bottom: 2px solid #e91e63;
+        box-shadow: none;
+    }
 
 
-  </style>
+    </style>
 </head>
 <body>
     <nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo">mySocial</a>
-      <a href = "#"><img src = "http://localhost:8008/Webp.net-resizeimage (1).png" href="#" class = "logo"></img></a>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">mySocial</a>
+            <a href = "#"><img src = "http://localhost:8008/Webp.net-resizeimage (1).png" href="#" class = "logo"></img></a>
 
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li>
-                 <div class="center row">
-                    <div class="col s12 " >
-                      <div class="row" id="topbarsearch">
-                        <div id ="search" class="input-field col s6 s12 white-text">
-                          <i class="white-text material-icons prefix">search</i>
-                          <input type="text" placeholder="Search for a certain keyword..." id="autocomplete-input" class="autocomplete black-text" >
-                          </div>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li>
+                    <div class="center row">
+                        <div class="col s12 " >
+                            <div class="row" id="topbarsearch">
+                                <div id ="search" class="input-field col s6 s12 white-text">
+                                    <i class="white-text material-icons prefix">search</i>
+                                    <input type="text" placeholder="Search for a certain keyword..." id="autocomplete-input" class="autocomplete black-text" >
+                                </div>
+                            </div>
                         </div>
-                      </div>
                     </div>
                 </li>
-        <li><a href="http://localhost:8008/feed">Home</a></li>
-        <li><a href="http://localhost:8008/ask">Ask</a></li>
-        <li><a class = "mylink" href = "#"><img class = "myimg" src = "http://localhost:8008/rsz_notification.png"></img></a></li>
-      </ul>
+                <li><a href="http://localhost:8008/feed">Home</a></li>
+                <li><a href="http://localhost:8008/ask">Ask</a></li>
+                <li><a class = "mylink" href = "#"><img class = "myimg" src = "http://localhost:8008/rsz_notification.png"></img></a></li>
+            </ul>
 
-    </div>
+        </div>
     </nav>
 
 
-
-
-
-
-
-
 <div class="container">
+    <div class="row">
 
-      <div class="row">
         <div class="input-field col s12">
-          <h4 id="title" type="text" required >
-          </h4>
-          <br>
-          <p id = "description"></p>
-          <a ><i id = "active" class="material-icons btn-vote">verified_user</i></a>
-        </div>
-      </div>
-
-
-      <div class="row">
-            <div id = "comments"class="col s12">
-                <h5> Comments</h5> <br>
-                
+            <div id="topic" class="upvote">
+                <a class="upvote"></a>
+                <span class="count">0</span>
+                <a class="downvote"></a>
+                <a class = "star"> </a>
             </div>
-     </div>
-
-
-      <div class="row">
-            <form class="col s12">
-              <div class="row">
-                <div class="input-field col s12">
-                  <textarea id="comment-textarea" class="materialize-textarea"></textarea>
-                  <label for="textarea1" class='active'>Comment</label>
+            <div id = "problemData">
+                <h4 id="title" type="text" required >
+                </h4>
+                <p id = "description"></p>
+                <div id = "tags">
                 </div>
-              </div>
-            </form>
-     </div>
+                <div id = "contentContainer">
+                    <h5> Comments</h5>
+                    <div id = "comments">
+                    </div>
+                    <div class="input-field col s6">
+                        <textarea id="comment-textarea" class="materialize-textarea"></textarea>
+                        <label for="textarea1" class='active'>Comment</label>
+                        <button id = "comment" class="reg btn btn-large btn-register waves-effect waves-light" type="submit" name="action">Add Comment
+                            <i class="material-icons right"></i>
+                        </button>
+                    </div>
+                    <p id = "message"></p>
 
+                </div>
+            </div>
 
-     <div class="cen">
-
-        <div class = "cen">
-           <p id = "message"></p>
-           <div class="input-field col s6">
-             <button id = "comment" class="reg btn btn-large btn-register waves-effect waves-light" type="submit" name="action">Add Comment
-               <i class="material-icons right"></i>
-             </button>
-           </div>
-       </div>
-     </div>
-
-     <br>
-
-
-
-      <div class="row">
-             <div id = "answers" class="col s12">
-                 <h5> Answers </h5> <br>
-             </div>
-      </div>
-
-
-     <h5>Your Answer:</h5>
-     <div class="row">
-           <form class="col s12">
-             <div class="row">
-               <div class="input-field col s12">
-                 <textarea id="answer-textarea" class="materialize-textarea"></textarea>
-                 <label for="textarea1" class='active'>Answer</label>
-               </div>
-             </div>
-           </form>
+        </div>
     </div>
-    <div class="cen">
-
-       <div class = "cen">
-          <p id = "message"></p>
-          <div class="input-field col s6">
-            <button id = "answer" class="reg btn btn-large btn-register waves-effect waves-light" type="submit" name="action">Submit Answer
-              <i class="material-icons right"></i>
-            </button>
-          </div>
-      </div>
-    </div>
-    <br> <br>
-
 
 </div>
+<!--
+    <div class = "row">
+        <div class="input-field col s12">
+            <div id = "comments"class="col s12">
+                <h5> Comments</h5> <br>
+                <form class="col s12">
+
+                        <div class="input-field col s12">
+                            <textarea id="comment-textarea" class="materialize-textarea"></textarea>
+                            <label for="textarea1" class='active'>Comment</label>
+                        </div>
+                        <div class="cen">
+
+                            <div class = "cen">
+                                <p id = "message"></p>
+                                <div class="input-field col s6">
+                                    <button id = "comment" class="reg btn btn-large btn-register waves-effect waves-light" type="submit" name="action">Add Comment
+                                        <i class="material-icons right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
 
-  <base href = "/public">
+
+    <br>
+
+
+
+    <div class="row">
+        <div id = "answers" class="col s12">
+            <h5> Answers </h5>
+            <h5>Your Answer:</h5>
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea id="answer-textarea" class="materialize-textarea"></textarea>
+                            <label for="textarea1" class='active'>Answer</label>
+                        </div>
+                    </div>
+                </form>
+            <div class="cen">
+                    <p id = "message"></p>
+                    <div class="input-field col s6">
+                        <button id = "answer" class="reg btn btn-large btn-register waves-effect waves-light" type="submit" name="action">Submit Answer
+                            <i class="material-icons right"></i>
+                        </button>
+                    </div>
+
+            </div>
+        </div>
+    </div> -->
+
+    <base href = "/public">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="jquery.cookie.js"></script>
-
-<script type="text/javascript" src="/css/js/materialize.min.js"></script>
+    <script type="text/javascript" src="/css/js/materialize.min.js"></script>
+    <script type="text/javascript" src="/scripts/lib/jquery.upvote.js"></script>
     <script type="text/javascript" src="/scripts/problem.js"></script>
+
+
 
 </body>
 </html>

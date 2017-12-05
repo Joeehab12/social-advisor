@@ -4,6 +4,7 @@ var Schema = mongoose.Schema;
 var mySchema = new Schema({
     title: {type: String,index: true},
     description: {type: String,index: true},
+    tags:[{type: String}],
     comments: [{body: String,upvotes: Number,downvotes: Number,user_id:String}],
     answers: [{body: String,upvotes: Number,downvotes: Number,user_id:String}],
     userId: String,

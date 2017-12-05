@@ -4,6 +4,7 @@ module.exports.ask = function(req,res){
     var problem  = new Problem({
     title: req.body.title,
     description: req.body.description,
+    tags: req.body.tags,
     comments: [{body: "",upvotes: 0 ,downvotes: 0}],
     answers: [{body: "",upvotes: 0 ,downvotes: 0}],
     userId: "",

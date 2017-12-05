@@ -33,8 +33,8 @@ $(document).ready(function(){
         $('.hoverZoomLink').attr('src',$.cookie("profile-pic"));
     });
 
-    $('a').click(function(){
-      $('input').click();
+    $('#edit-pic').click(function(){
+      $('#profile-pic').click();
     })
     function makeRequest(){
         if (filename){

@@ -15,7 +15,8 @@ module.exports.problem = function(req,res,next){
             console.log('problem found.')
             res.json({
                 title: problem.title,
-                description: problem.description
+                description: problem.description,
+                tags: problem.tags
             });
         }
         else{

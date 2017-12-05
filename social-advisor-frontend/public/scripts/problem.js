@@ -2,11 +2,15 @@ var url = $(location).attr('href');
 var id = url.substring(url.lastIndexOf('/') + 1);
 //console.log(id);
 $(document).ready(function(){
+    $("#topic").upvote();
         $.post('http://localhost:8000/problem/'+id +'?token=' + $.cookie("token"),null)
         .done(function(data){
-              //  console.log($.cookie("token"));
+                //  console.log($.cookie("token"));
                 $('#title').text(data.title);
                 $('#description').text(data.description);
+                data.tags.forEach(function(item){
+                    $('#tags').append('<div class = \"chip\">' + '<a id = \"tagLinks\" href = \"http://localhost:8008/feed?query='+ item+'\">' + item + '</a></div>');
+                });
         });
 
 
