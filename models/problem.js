@@ -2,14 +2,16 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var mySchema = new Schema({
-    title: String,
-    description: String,
-    comments: [{body: String,upvotes: Number,downvotes: Number}],
-    answers: [{body: String,upvotes: Number,downvotes: Number}],
+    title: {type: String,index: true},
+    description: {type: String,index: true},
+    comments: [{body: String,upvotes: Number,downvotes: Number,user_id:String}],
+    answers: [{body: String,upvotes: Number,downvotes: Number,user_id:String}],
     userId: String,
     upvotes: Number,
     downvotes: Number
 });
-module.exports = mongoose.model('Problem',mySchema);
+var Problem = mongoose.model('Problem',mySchema);
 
-mySchema.index({title: "text",description: "text"});
+mySchema.index({title: "text",description:"text"});
+
+module.exports = Problem;

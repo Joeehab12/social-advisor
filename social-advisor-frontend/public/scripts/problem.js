@@ -4,14 +4,14 @@ var id = url.substring(url.lastIndexOf('/') + 1);
 $(document).ready(function(){
         $.post('http://localhost:8000/problem/'+id +'?token=' + $.cookie("token"),null)
         .done(function(data){
-                console.log($.cookie("token"));
+              //  console.log($.cookie("token"));
                 $('#title').text(data.title);
                 $('#description').text(data.description);
         });
 
 
             $('#comment').click(function(){
-                $.post('http://localhost:8000/comment/'+ id +'?token=' + $.cookie("token"),{comment: $('#comment-textarea').val()})
+                $.post('http://localhost:8000/comment/'+ id +'?token=' + $.cookie("token"),{comment: $('#comment-textarea').val(),user_id:$.cookie("user_id")})
                 .done(function(data){
                     if (data.status == "success"){
                         console.log("comment added successfuly");
@@ -20,14 +20,27 @@ $(document).ready(function(){
                 });
             });
             str = "";
+            var userCommentIds=[];
             $.get('http://localhost:8000/comment/'+ id +'?token=' + $.cookie("token"),function(data){
+
                 console.log(data);
+                var i=1;
                 var comments = data[0].comments;
                 comments.forEach(function(item){
+              // place span here
+                    userCommentIds.push(item.user_id);
+                    str+= '<span> <img id="comment_pic'+i+'" width = "30px" height = "30px"></img></span>';
                     str+= '<p>' + item.body + '</p><br>';
+                    i++;
                 });
                 $('#comments').append(str);
             });
+
+
+
+
+
+
 
             $.get('http://localhost:8000/answers/'+ id +'?token=' + $.cookie("token"),function(data){
                 str = "";
@@ -48,7 +61,16 @@ $(document).ready(function(){
                     }
                 });
             });
+            var i = 1;
+            userCommentIds.forEach(function(item){
+              $.get('http://localhost:8000/user/'+item+'?token=' + $.cookie("token"),function(data){
+                  console.log(data.profile_pic);
+                $('#comment_pic'+i).attr('src',data.profile_pic);
+
+              });
+              i++;
+            });
 
 
-
+            console.log(userCommentIds);
 });

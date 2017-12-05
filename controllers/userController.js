@@ -16,7 +16,8 @@ module.exports.user = function(req,res,next){
             res.json({
                 firstName: user.firstName,
                 lastName: user.lastName,
-                username: user.username
+                username: user.username,
+                profile_pic: user.profile_pic
             });
         }
         else{

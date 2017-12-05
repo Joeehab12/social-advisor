@@ -1,9 +1,14 @@
 $(document).ready(function(){
     var url = $(location).attr('href');
     var id = url.substring(url.lastIndexOf('/') + 1);
-    if($.cookie("token")){
+    // $('#pp')
+    // .attr('src',$.cookie("profile-pic"))
+    // .width(160).height(160);
+    // $('#user-img').attr('src',$.cookie("profile-pic")).width(30).height(30);
 
-        str ='<li>Welcome, <a id = "current-user" href="http://localhost:8008/user/'+$.cookie("user_id")+'">'+ $.cookie('current-user') +'<img id = "user-img" style = "width:30px; height:30px" src="http://localhost:8008/rsz_blank-profile-picture-973460_640.png"></img></a></li>'+'<li><a href="http://localhost:8008/ask">Ask</a></li>'
+    if($.cookie("token")){
+        //var user_pp = profile_pic;
+        str ='<li>Welcome, <a id = "current-user" href="http://localhost:8008/user/'+$.cookie("user_id")+'">'+ $.cookie('current-user') +'<img id = "user-img" style = "width:30px; height:30px"></img></a></li>'+'<li><a href="http://localhost:8008/ask">Ask</a></li>'
         + '<li><a id = "logout">Log out</a></li>'+
         '<li><a class = "mylink" href = "#"><img class = "myimg" src = "http://localhost:8008/rsz_notification.png"></img></a></li>';
         $('#nav-mobile').append(str);
@@ -17,11 +22,23 @@ $(document).ready(function(){
         console.log(data);
         $('#first-name').text('First Name:   ' + data.firstName);
         $('#last-name').text('Last Name:   ' +data.lastName);
-        $('#username').text('Username:   ' + data.username);
+        $('#username').text(data.username);
+        $('#first_last_name').text(data.firstName + ' ' + data.lastName);
+        $.cookie("profile-pic",data.profile_pic);
+        $('.hoverZoomLink')
+        .attr('src',$.cookie("profile-pic"))
+        .width(160).height(160);
+
+        $('#user-img').attr('src',$.cookie("profile-pic")).width(30).height(30);
+        $('.hoverZoomLink').attr('src',$.cookie("profile-pic"));
     });
+
+    $('a').click(function(){
+      $('input').click();
+    })
     function makeRequest(){
         if (filename){
-            $.post('http://localhost:8000/profile?token='+ $.cookie("token"),{url:filename}).done(function(){
+            $.post('http://localhost:8000/profile?token='+ $.cookie("token"),{url:filename,id:id}).done(function(){
                 console.log(filename);
             });
         }
@@ -58,12 +75,19 @@ $(document).ready(function(){
         console.log(e.target.result + ' uploaded to server');
     }
 */
-var x;
 var onLoadCallback = function(){
     filename = e.target.result;
     if (filename){
-        $.post('http://localhost:8000/profile?token='+ $.cookie("token"),{url:filename}).done(function(){
+        $.post('http://localhost:8000/profile?token='+ $.cookie("token"),{url:filename,id:id}).done(function(data){
             console.log(filename);
+            console.log(data.message);
+            $('#hoverZoomLink')
+            .attr('src',e.target.result)
+            .width(160).height(160);
+            $('#user-img').attr('src',e.target.result).width(30).height(30);
+
+          //  $('#user-img').attr('src',$.cookie("profile-pic")).width(30).height(30);
+
         });
     }
     else{
@@ -75,6 +99,20 @@ $('#profile-pic').on('change', function(e){
         readFile(this.files[0], function(e) {
             // use result in callback...
             // console.log(e.target.result);
+            $.post('http://localhost:8000/profile?token='+ $.cookie("token"),{url:e.target.result,id:$.cookie("user_id")}).done(function(data){
+              //  console.log(e.target.result);
+            //var ext = e.target.result.substring("data:image/".length, e.target.result.indexOf(";base64"))
+              //$.cookie("profile-pic","http://localhost:8008/assets/"+$.cookie("user_id")+'.'+ext);
+              $('.hoverZoomLink')
+              .attr('src',e.target.result)
+              .width(160).height(160);
+              $('#user-img').attr('src',e.target.result).width(30).height(30);
+
+                console.log(data.message);
+
+            });
+
+            //console.log(e.target.result + ' uploaded to server');
         });
     });
 

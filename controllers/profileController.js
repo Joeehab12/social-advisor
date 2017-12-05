@@ -11,34 +11,38 @@ var filename =randomString.generate({
   charset: 'alphabetic'
 });
 var ext;
-if (typeof req.body.url !== "undefined"){
- ext = req.body.url.substring(req.body.url.lastIndexOf('.'));
+if (req.body.url){
+ ext = req.body.url.substring("data:image/".length, req.body.url.indexOf(";base64"))
 }
-request.get({url: req.body.url, encoding: 'binary'}, function (err, response, body) {
-  fs.writeFile("./assets/"+ filename + ext, body, 'binary', function(err) {
-    if(err){
-        fs.writeFile('log.txt',err.toString(),function(err) {
-                console.log("The file was saved!");
-                //throw err;
-        });
-        res.json({status:"failed",message:"error occured"})
-    }
-    else{
-        res.json({status: "success",
-                  message:"file uploaded to server succcessfully."});
-      console.log("The file was saved!");
-  }
-  });
-});
-/*var filename = req.body.url;
+request.get({url: req.body.url, encoding: 'base64'}, function (err, response, body) {
 
-console.log(filename);
-var file = fs.createWriteStream('file.jpg');
-console.log(req.body.url);
-var request = http.get(req.body.url, function(response) {
-  response.pipe(file);
+  // our data URL string from canvas.toDataUrl();
+var imageDataUrl = req.body.url;
+// declare a regexp to match the non base64 first characters
+var dataUrlRegExp = /^data:image\/\w+;base64,/;
+// remove the "header" of the data URL via the regexp
+var base64Data = imageDataUrl.replace(dataUrlRegExp, "");
+// declare a binary buffer to hold decoded base64 data
+var imageBuffer = new Buffer(base64Data, "base64");
+// write the buffer to the local file system synchronously
+fs.writeFileSync("./social-advisor-frontend/public/assets/"+req.body.id+'.'+ext, imageBuffer);
+
 });
-*/
+var User = require('../models/user.js');
+
+User.findByIdAndUpdate(req.body.id,{profile_pic:"http://localhost:8008/assets/"+req.body.id +'.'+ext},function(err,data){
+
+  if(err){
+    res.status(404).json({status:"failed",message: "could not update user profile picture."});
+  }
+  else{
+    res.status(200).json({status:"success",message: "succcessfully updated user profile picture."});
+  }
+});
+
+
+
+
 
 
 }

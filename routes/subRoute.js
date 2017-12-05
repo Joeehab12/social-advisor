@@ -17,9 +17,9 @@ module.exports = function(app){
     app.post('/login',loginController.login);
     app.post('/register',registerController.register)
     app.use(loginMiddleware);
+    app.post('/feed/search',searchController.search);
     app.get('/feed',feedController.feed);
     app.post('/problem/:id',problemController.problem);
-    app.post('/feed/search',searchController.search);
     app.post('/ask',askController.ask);
     app.post('/comment/:id',commentPostController.postComment);
     app.get('/comment/:id',commentGetController.getComment);
