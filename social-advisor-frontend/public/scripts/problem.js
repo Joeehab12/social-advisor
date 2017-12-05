@@ -13,7 +13,6 @@ $(document).ready(function(){
                 });
         });
 
-
             $('#comment').click(function(){
                 $.post('http://localhost:8000/comment/'+ id +'?token=' + $.cookie("token"),{comment: $('#comment-textarea').val(),user_id:$.cookie("user_id")})
                 .done(function(data){
