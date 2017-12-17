@@ -14,7 +14,7 @@ $(document).ready(function(){
                 str = "";
                 data.forEach(function(problem){
 
-                    str += '<li><div class="collapsible-header">'
+                    str += '<li><div class="collapsible-header" style = "width:100%">'
                     +'<span class="new badge">'+'</span><i class="material-icons">filter_drama</i>'
                     +problem.title + '</div><div class="collapsible-body">'+'<br>' +
                     '<p>' + problem.description + '</p><br>' +
@@ -63,7 +63,7 @@ $(document).ready(function(){
             if (data){
                 data.forEach(function(problem){
                     console.log(problem._id);
-                    str += '<li><div class="collapsible-header">'
+                    str += '<li><div class="collapsible-header" style = "width:100%">'
                     +'<span class="new badge">'+'</span><i class="material-icons">filter_drama</i>'
                     +problem.title + '</div><div class="collapsible-body">'+'<br>' +
                     '<p>' + problem.description + '</p><br>' +
@@ -89,7 +89,7 @@ $(document).ready(function(){
                     str = "";
                     data.forEach(function(problem){
 
-                        str += '<li><div class="collapsible-header">'
+                        str += '<li><div class="collapsible-header" style = "width:100%">'
                         +'<span class="new badge">'+'</span><i class="material-icons">filter_drama</i>'
                         +problem.title + '</div><div class="collapsible-body">'+'<br>' +
                         '<p>' + problem.description + '</p><br>' +

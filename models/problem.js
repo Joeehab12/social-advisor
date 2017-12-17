@@ -9,7 +9,10 @@ var mySchema = new Schema({
     answers: [{body: String,upvotes: Number,downvotes: Number,user_id:String}],
     userId: String,
     upvotes: Number,
-    downvotes: Number
+    upvoted: Boolean,
+    downvoted: Boolean,
+    downvotes: Number,
+    voting_user_ids: [{voting_user_id:String}]
 });
 var Problem = mongoose.model('Problem',mySchema);
 

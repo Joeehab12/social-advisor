@@ -30,6 +30,7 @@ module.exports.login = function(req,res,next){
                     res.json({
                         status: "success",
                         id: user.id,
+                        user_type: user.type,
                         message: "Enjoy your token.",
                         token : token
                     });

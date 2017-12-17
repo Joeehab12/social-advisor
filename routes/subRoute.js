@@ -11,7 +11,7 @@ module.exports = function(app){
     var answerPostController = require('../controllers/answerPostController.js');
     var userController = require('../controllers/userController.js');
     var profileController = require('../controllers/profileController.js');
-
+    var problemUpvoteController = require('../controllers/problemUpvoteController.js');
     var loginMiddleware = require('../middlewares/loginMiddleware.js');
 
     app.post('/login',loginController.login);
@@ -27,5 +27,5 @@ module.exports = function(app){
     app.get('/answers/:id',answerGetController.getAnswer);
     app.get('/user/:id',userController.user);
     app.post('/profile',profileController.profile);
-
+    app.post('/problem-upvotes/:id',problemUpvoteController.problemUpvote);
 }

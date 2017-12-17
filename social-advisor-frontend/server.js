@@ -47,6 +47,10 @@ app.get('/',function(req,res,next){
     res.render('index');
 });
 
+app.get('/admin',function(req,res,next){
+    res.render('admin');
+});
+
 app.get('/login',function(req,res,next){
     res.render('login');
 });

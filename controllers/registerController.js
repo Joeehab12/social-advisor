@@ -5,7 +5,8 @@ module.exports.register = function (req,res,next){
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         username: req.body.username,
-        password: req.body.password
+        password: req.body.password,
+        type: "ordinary"
     });
 
     res.setHeader('Access-Control-Allow-Origin', '*');

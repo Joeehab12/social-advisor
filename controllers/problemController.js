@@ -16,7 +16,10 @@ module.exports.problem = function(req,res,next){
             res.json({
                 title: problem.title,
                 description: problem.description,
-                tags: problem.tags
+                tags: problem.tags,
+                upvotes: problem.upvotes,
+                upvoted: problem.upvoted,
+                downvoted: problem.downvoted
             });
         }
         else{

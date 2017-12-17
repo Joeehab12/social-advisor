@@ -1,0 +1,3 @@
+{ "_id" : { "$oid" : "5995e48f840e485602c5a6f8" }, "firstName" : "Youssef", "lastName" : "Ehab", "username" : "JoeEhab12", "password" : "cleveland", "__v" : 0, "profile_pic" : "http://localhost:8008/assets/5995e48f840e485602c5a6f8.png" }
+{ "_id" : { "$oid" : "59a197f72520206461de70a1" }, "firstName" : "Nour Eldin", "lastName" : "Khaled", "username" : "nour95", "password" : "nour95", "__v" : 0, "profile_pic" : "http://localhost:8008/assets/59a197f72520206461de70a1.png" }
+{ "_id" : { "$oid" : "59a3d7ddcf4a66216a8745bb" }, "firstName" : "Mahmoud", "lastName" : "Ehab", "username" : "7ouda95", "password" : "7ouda95", "profile_pic" : "http://localhost:8008/assets/59a3d7ddcf4a66216a8745bb.png", "__v" : 0 }

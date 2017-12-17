@@ -33,14 +33,27 @@
         -moz-font-feature-settings: 'liga';
         -moz-osx-font-smoothing: grayscale;
     }
+    #left{
+        float:left;
+    }
+    #right{
+        overflow: hidden;
+    }
 
+    .commentpp{
+        padding: 10px;
+        border-radius: 40px;
+    }
     #answerContainer{
         height: 200px;
     }
     body,html{
         height:100%;
     }
-
+    #topic{
+        /*height:400px;*/
+        display: table-cell;
+    }
     .upvote{
         float: left;
         padding:15px;
@@ -65,6 +78,7 @@
     }
     #comments{
         font-size: 10pt;
+        display: table-cell;
     }
 
     #form1{
@@ -159,10 +173,7 @@
 
                 <div class="input-field col s12">
                     <div id="topic" class="upvote">
-                        <a class="upvote"></a>
-                        <span class="count">0</span>
-                        <a class="downvote"></a>
-                        <a class = "star"> </a>
+
                     </div>
                     <h4 id="title" type="text" required >
                     </h4>

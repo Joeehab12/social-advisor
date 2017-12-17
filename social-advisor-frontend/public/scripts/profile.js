@@ -8,7 +8,7 @@ $(document).ready(function(){
 
     if($.cookie("token")){
         //var user_pp = profile_pic;
-        str ='<li>Welcome, <a id = "current-user" href="http://localhost:8008/user/'+$.cookie("user_id")+'">'+ $.cookie('current-user') +'<img id = "user-img" style = "width:30px; height:30px"></img></a></li>'+'<li><a href="http://localhost:8008/ask">Ask</a></li>'
+        str ='<li>Welcome, <a id = "current-user" href="http://localhost:8008/user/'+$.cookie("user_id")+'">'+ $.cookie('current-user') +'<img src = " '+ $.cookie("profile-pic")+'" id = "user-img" style = "width:30px; height:30px"></img></a></li>'+'<li><a href = "http://localhost:8008/feed">Home</a><li><a href="http://localhost:8008/ask">Ask</a></li>'
         + '<li><a id = "logout">Log out</a></li>'+
         '<li><a class = "mylink" href = "#"><img class = "myimg" src = "http://localhost:8008/rsz_notification.png"></img></a></li>';
         $('#nav-mobile').append(str);
@@ -16,10 +16,13 @@ $(document).ready(function(){
     else{
         $('#logged-in').append('<p> You must be logged in to access this page.');
     }
-    id = $.cookie("user_id");
+    //id = $.cookie("user_id");
     $.get('http://localhost:8000/user/'+id+'?token=' + $.cookie("token"),null)
     .done(function(data){
         console.log(data);
+        if (data.username != $.cookie("current-user")){
+            $("#edit-pic").hide();
+        }
         $('#first-name').text('First Name:   ' + data.firstName);
         $('#last-name').text('Last Name:   ' +data.lastName);
         $('#username').text(data.username);
@@ -29,7 +32,7 @@ $(document).ready(function(){
         .attr('src',$.cookie("profile-pic"))
         .width(160).height(160);
 
-        $('#user-img').attr('src',$.cookie("profile-pic")).width(30).height(30);
+        //$('#user-img').attr('src','http://localhost:8008/assets/' + $.cookie("user-id")+'.jpeg').width(30).height(30);
         $('.hoverZoomLink').attr('src',$.cookie("profile-pic"));
     });
 

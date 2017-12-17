@@ -1,4 +1,8 @@
 $(document).ready(function(){
+    $('#first_name').val('');
+    $('#last_name').val('');
+    $('#username').val('');
+    $('#password').val('');
     $('#register').click(function(){
         $.post('http://localhost:8000/register',
         { firstName: $('#first_name').val(),
