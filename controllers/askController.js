@@ -7,7 +7,7 @@ module.exports.ask = function(req,res){
     tags: req.body.tags,
     comments: [{body: "",upvotes: 0 ,downvotes: 0}],
     answers: [{body: "",upvotes: 0 ,downvotes: 0}],
-    userId: "",
+    userId: req.body.userId,
     upvotes: 0,
     downvotes: 0
     });

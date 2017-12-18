@@ -19,7 +19,9 @@ module.exports.problem = function(req,res,next){
                 tags: problem.tags,
                 upvotes: problem.upvotes,
                 upvoted: problem.upvoted,
-                downvoted: problem.downvoted
+                downvoted: problem.downvoted,
+                userId: problem.userId,
+                accepted: problem.accepted
             });
         }
         else{

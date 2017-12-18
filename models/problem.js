@@ -6,13 +6,13 @@ var mySchema = new Schema({
     description: {type: String,index: true},
     tags:[{type: String}],
     comments: [{body: String,upvotes: Number,downvotes: Number,user_id:String}],
-    answers: [{body: String,upvotes: Number,downvotes: Number,user_id:String}],
+    answers: [{body: String,upvotes: Number,downvotes: Number,user_id:String,accepted:Boolean}],
     userId: String,
     upvotes: Number,
     upvoted: Boolean,
     downvoted: Boolean,
     downvotes: Number,
-    voting_user_ids: [{voting_user_id:String}]
+    voting_user_ids: [{voting_user_id:String}],
 });
 var Problem = mongoose.model('Problem',mySchema);
 

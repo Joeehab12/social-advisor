@@ -78,7 +78,7 @@ $(document).ready(function(){
     }
 
     $( "#autocomplete-input" ).keypress(function(event) {
-        if(event.which == 13) {
+        if(event.which == 13  && $('#autocomplete-input').val() != "") {
 
             $.post('http://localhost:8000/feed/search?token='+ $.cookie("token"),{keyword: $('#autocomplete-input').val()})
             .done(function(data){

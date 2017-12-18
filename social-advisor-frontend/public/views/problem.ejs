@@ -33,6 +33,9 @@
         -moz-font-feature-settings: 'liga';
         -moz-osx-font-smoothing: grayscale;
     }
+    #report{
+        float: right;
+    }
     #left{
         float:left;
     }
@@ -180,6 +183,23 @@
                     <p id = "description"></p>
                     <div id = "tags">
                     </div>
+                    <div id = "report">
+                        <!-- <button id = "report_problem" class="reg btn btn-large btn-register waves-effect waves-light" name="action">Report Inappropriate
+                            <i class="material-icons right"></i>
+                        </button> -->
+                        <a class="waves-effect waves-light btn modal-trigger" href="#report_popup">Report Inappropriate</a>
+                        <!-- Modal Structure -->
+                        <div id="report_popup" class="modal">
+                          <div class="modal-content">
+                            <h4>Report Inappropriate Content</h4>
+                            <textarea placeholder="enter report description..." id="report-textarea" class="materialize-textarea"></textarea>
+                            <label for="report-textarea" class='active'>Reason for Report</label>
+                          </div>
+                          <div class="modal-footer">
+                            <a id = "reportSubmit" class="modal-action modal-close waves-effect waves-green btn-flat">Submit</a>
+                          </div>
+                        </div>
+                    </div>
                     <div id = "contentContainer">
                         <div id = "comments">
                         </div>
@@ -277,7 +297,7 @@
 </div>
 </div> -->
 
-<base href = "/public">
+<!-- <base href = "/public"> -->
 <script type="text/javascript" src="http://localhost:8008/scripts/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="http://localhost:8008/jquery.cookie.js"></script>
 <script type="text/javascript" src="http://localhost:8008//css/js/materialize.min.js"></script>

@@ -6,6 +6,7 @@ $(document).ready(function(){
             $.cookie("token",data.token);
             $.cookie("current-user",$("#username").val());
             $.cookie("user_id",data.id);
+            $.cookie("user_type",data.user_type);
             if (data.status == "success"){
                 /*    $.get('http://localhost:8000/feed?token=' + data.token,function(data){
 
@@ -30,6 +31,7 @@ $("#password").keypress(function(event){
             $.cookie("token",data.token);
             $.cookie("current-user",$("#username").val());
             $.cookie("user_id",data.id);
+            $.cookie("user_type",data.user_type);
             if (data.status == "success"){
                 /*    $.get('http://localhost:8000/feed?token=' + data.token,function(data){
 

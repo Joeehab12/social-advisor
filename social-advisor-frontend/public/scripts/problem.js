@@ -1,59 +1,24 @@
 var url = $(location).attr('href');
 var id = url.substring(url.lastIndexOf('/') + 1);
+var id_temp = id;
 //console.log(id);
 $(document).ready(function(){
-
-    $.post('http://localhost:8000/problem/'+id +'?token=' + $.cookie("token"),null)
-    .done(function(data){
-        //  console.log($.cookie("token"));
-        console.log(data.upvotes);
-        var str = '<a id = "problemUpvote" class="upvote"></a>' + '<span class="count">' + data.upvotes +'</span>' +
-        '<a class="downvote"></a>' +
-        '<a class = "star"> </a>';
-        $("#topic").append(str);
-        $("#topic").upvote();
-        $('#title').text(data.title);
-        $('#description').text(data.description);
-        console.log(data);
-        console.log(data);
-        if (data.upvoted == true && data.downvoted == false){
-            $('#topic').upvote('upvote');
-        }
-        else if (data.upvoted == false && data.downvoted == true){
-            $('#topic').upvote('downvote');
-        }
-        // if ($("#topic").upvote('upvoted') == false){
-        //     $(".upvote").click(function(){
-        //
-        //         $.post('http://localhost:8000/problem-upvotes/'+ id + '?token='+ $.cookie("token"),{count:$('#topic').upvote("count"),upvoted: true,downvoted:false} ).done(function(data){
-        //             if (data.status == "success"){
-        //                 console.log("updated problem upvotes succcessfully");
-        //                 //$('#topic').upvote('upvote');
-        //             }
-        //             else{
-        //                 console.log("Failed to update problem upvote");
-        //             }
-        //         });
-        //     });
-        // }
-        // if ($("#topic").upvote('downvoted') == false){
-        //     $(".downvote").click(function(){
-        //         $.post('http://localhost:8000/problem-upvotes/'+ id + '?token='+ $.cookie("token"),{count:$('#topic').upvote("count"),upvoted: false,downvoted:true} ).done(function(data){
-        //             if (data.status == "success"){
-        //                 console.log("updated problem upvotes succcessfully");
-        //             }
-        //             else{
-        //                 console.log("Failed to update problem upvote");
-        //             }
-        //         });
-        //     });
-        // }
-
-
-        data.tags.forEach(function(item){
-            $('#tags').append('<div class = \"chip\">' + '<a id = \"tagLinks\" href = \"http://localhost:8008/feed?query='+ item+'\">' + item + '</a></div>');
+    if ($.cookie("user_type") == "ordinary"){
+        $("#report").hide();
+    }
+    $('.modal').modal();
+    $('#reportSubmit').click(function(){
+        $.post('http://localhost:8000/report?token=' + $.cookie("token"),{id: id_temp , description: $("#report-textarea").val()  })
+        .done(function(data){
+            if (data.status = "success"){
+                console.log("succcessfully added report.");
+            }
+            else{
+                console.log("failed to add report");
+            }
         });
     });
+
     // if ($("#topic").upvote('upvoted') == false){
     //     $(".upvote").click(function(){
     //
@@ -165,9 +130,16 @@ $(document).ready(function(){
                 + '<a class = \"star\"> </a>' +
                 '</div>';
                 answers1+= '<p>' + item.body + '</p><br>';
+                if (item.accepted == true){
+                    answers1+= '<b> Answer Accepted by User</b>'
+                }
                 //console.log(answers1);
+                answers1 += '<a class="waves-effect waves-light btn accept_answer" href="#">Accept Answer</a>';
                 answers1+= '</div>'
                 $('#answers').append(answers1);
+                if (hidden == true || item.accepted == true){
+                    $('.accept_answer').hide();
+                }
                 answers1 = "";
                 i++;
             }
@@ -177,7 +149,7 @@ $(document).ready(function(){
         }
 
     })
-
+    var hidden = false;
     $('#answer').click(function(){
         $.post('http://localhost:8000/answers/'+ id +'?token=' + $.cookie("token"),{answer: $('#answer-textarea').val()})
         .done(function(data){
@@ -202,9 +174,16 @@ $(document).ready(function(){
                     + '<a class = \"star\"> </a>' +
                     '</div>';
                     answers2+= '<p>' + item.body + '</p>';
+                    if (item.accepted == true){
+                        answers1+= '<b> Answer Accepted by User</b>'
+                    }
+                    answers2 += '<a class="waves-effect waves-light btn accept_answer">Accept Answer</a>';
                     answers2+= '</div>';
                     $('#answers').append(answers2);
                     $("#topic2").upvote();
+                    if (hidden == true || item.accepted == true){
+                        $('.accept_answer').hide();
+                    }
                     answers2 = "";
                     index++;
                 }
@@ -214,6 +193,65 @@ $(document).ready(function(){
             }
         });
 
+    });
+
+    $.post('http://localhost:8000/problem/'+id +'?token=' + $.cookie("token"),null)
+    .done(function(data){
+        //  console.log($.cookie("token"));
+        console.log(data.upvotes);
+        var str = '<a id = "problemUpvote" class="upvote"></a>' + '<span class="count">' + data.upvotes +'</span>' +
+        '<a class="downvote"></a>' +
+        '<a class = "star"> </a>';
+        $("#topic").append(str);
+        $("#topic").upvote();
+        $('#title').text(data.title);
+        $('#description').text(data.description);
+        console.log(data);
+        console.log(data);
+        problem_user_id = data.userId;
+        if (data.userId !=  $.cookie("user_id")){
+            $('.accept_answer').hide();
+            hidden = true;
+        }
+
+        console.log("problem_user_id : " + data.userId + " current_user_id: " + $.cookie("user_id"));
+        if (data.upvoted == true && data.downvoted == false){
+            $('#topic').upvote('upvote');
+        }
+        else if (data.upvoted == false && data.downvoted == true){
+            $('#topic').upvote('downvote');
+        }
+        // if ($("#topic").upvote('upvoted') == false){
+        //     $(".upvote").click(function(){
+        //
+        //         $.post('http://localhost:8000/problem-upvotes/'+ id + '?token='+ $.cookie("token"),{count:$('#topic').upvote("count"),upvoted: true,downvoted:false} ).done(function(data){
+        //             if (data.status == "success"){
+        //                 console.log("updated problem upvotes succcessfully");
+        //                 //$('#topic').upvote('upvote');
+        //             }
+        //             else{
+        //                 console.log("Failed to update problem upvote");
+        //             }
+        //         });
+        //     });
+        // }
+        // if ($("#topic").upvote('downvoted') == false){
+        //     $(".downvote").click(function(){
+        //         $.post('http://localhost:8000/problem-upvotes/'+ id + '?token='+ $.cookie("token"),{count:$('#topic').upvote("count"),upvoted: false,downvoted:true} ).done(function(data){
+        //             if (data.status == "success"){
+        //                 console.log("updated problem upvotes succcessfully");
+        //             }
+        //             else{
+        //                 console.log("Failed to update problem upvote");
+        //             }
+        //         });
+        //     });
+        // }
+
+
+        data.tags.forEach(function(item){
+            $('#tags').append('<div class = \"chip\">' + '<a id = \"tagLinks\" href = \"http://localhost:8008/feed?query='+ item+'\">' + item + '</a></div>');
+        });
     });
     // var i = 1;
     // userCommentIds.forEach(function(item){

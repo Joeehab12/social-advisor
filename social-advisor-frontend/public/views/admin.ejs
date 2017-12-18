@@ -132,7 +132,7 @@
         border-bottom: 2px solid #e91e63;
         box-shadow: none;
     }
-    
+
     </style>
     <body>
 
@@ -158,6 +158,25 @@
 
                 </div>
             </nav>
+
+
+            <ul id = "results" class="collapsible" data-collapsible="accordion">
+
+            </ul>
+
+            <a  id = "report_trigger" class="waves-effect waves-light btn modal-trigger" href="#report_popup">View Reports</a>
+            <!-- Modal Structure -->
+            <div id="report_popup" class="modal">
+              <div class="modal-content">
+                  <ul id = "reports" class="collapsible" data-collapsible="accordion">
+
+                  </ul>
+              </div>
+              <div class="modal-footer">
+                <a id = "reportSubmit" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+              </div>
+            </div>
+
         <script type="text/javascript" src="scripts/jquery-3.2.1.min.js"></script>
         <script type = "text/javascript" src="jquery.cookie.js"></script>
         <script type="text/javascript" src="css/js/materialize.min.js"></script>

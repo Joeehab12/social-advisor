@@ -12,7 +12,11 @@ module.exports = function(app){
     var userController = require('../controllers/userController.js');
     var profileController = require('../controllers/profileController.js');
     var problemUpvoteController = require('../controllers/problemUpvoteController.js');
+    var reportPostController = require('../controllers/reportPostController.js');
+    var reportGetController = require('../controllers/reportGetController.js');
+    var acceptedPostController = require('../controllers/acceptedPostController.js');
     var loginMiddleware = require('../middlewares/loginMiddleware.js');
+
 
     app.post('/login',loginController.login);
     app.post('/register',registerController.register)
@@ -28,4 +32,7 @@ module.exports = function(app){
     app.get('/user/:id',userController.user);
     app.post('/profile',profileController.profile);
     app.post('/problem-upvotes/:id',problemUpvoteController.problemUpvote);
+    app.post('/report',reportPostController.postReport);
+    app.get('/report',reportGetController.getReport);
+    app.post('/accept/:id',acceptedPostController.postAccepted);
 }
