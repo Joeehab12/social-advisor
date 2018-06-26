@@ -105,6 +105,9 @@ $(document).ready(function(){
                         $('#empty-search').append('<p>Search returned no results</p>');
                     }
                 }
+                // else{
+                //     $('#empty-search').append('<p>Search returned no results</p>');
+                // }
             });
 
 

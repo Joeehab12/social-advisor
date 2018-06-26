@@ -17,7 +17,7 @@ module.exports = function(app){
     var acceptedPostController = require('../controllers/acceptedPostController.js');
     var loginMiddleware = require('../middlewares/loginMiddleware.js');
 
-
+    
     app.post('/login',loginController.login);
     app.post('/register',registerController.register)
     app.use(loginMiddleware);
